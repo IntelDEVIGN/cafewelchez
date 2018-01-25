@@ -1,0 +1,422 @@
+{
+    "nombre": "Finca Santa Isabel",
+    "categorias": [
+        {
+            "nombre": "Al Que Madruga",
+            "items": [
+                {
+                    "nombre": "Colores de la Estación",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 90,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "con Yogurt",
+                    "descripcion": "",
+                    "nivel": 2,
+                    "precio": 119,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "con Yogurt y Granola",
+                    "descripcion": "",
+                    "nivel": 2,
+                    "precio": 129,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Huevos Marinita",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 150,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Madrugada Maya",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 150,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Frijolero",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 60,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Baleadas",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 75,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "con Huevo",
+                    "descripcion": "",
+                    "nivel": 2,
+                    "precio": 90,
+                    "precio_2": 0,
+                    "activo": true
+                }
+            ],
+            "activa": true,
+            "mask_height": 282,
+            "header_price_1": "",
+            "header_price_2": ""
+        },
+        {
+            "nombre": "Bebidas Calientes",
+            "items": [
+                {
+                    "nombre": "Café Americano",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 20,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Café Latte",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 35,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Café con Leche",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 30,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Cappuccino",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 35,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Café Espresso",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 20,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Café Mocha",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 35,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Chocolate Caliente",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 38,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Té Caliente",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 21,
+                    "precio_2": 0,
+                    "activo": true
+                }
+            ],
+            "activa": true,
+            "mask_height": 282,
+            "header_price_1": "",
+            "header_price_2": ""
+        },
+        {
+            "nombre": "Principales",
+            "items": [
+                {
+                    "nombre": "Pavo Real",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 170,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "El Señor de los Quesos",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 150,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Jamón Jamón",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 260,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Copán Blues",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 170,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Chilaquiles de la Casa",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 230,
+                    "precio_2": 0,
+                    "activo": true
+                }
+            ],
+            "activa": true,
+            "mask_height": 282,
+            "header_price_1": "",
+            "header_price_2": ""
+        },
+        {
+            "nombre": "Para Endulzar el Día",
+            "items": [
+                {
+                    "nombre": "El Germánico",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 50,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Pastel de Zanahoria y Piña",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 55,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "El Bananero",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 40,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Cheese Cake",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 60,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Quesadilla Copaneca",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 35,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Flan de Coco",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 52,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Flan de Café",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 52,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Flan de Queso",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 60,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Brazo Gitano",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 40,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Tres Leches",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 52,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Pastel de Fresas",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 59,
+                    "precio_2": 0,
+                    "activo": true
+                }
+            ],
+            "activa": true,
+            "mask_height": 282,
+            "header_price_1": "",
+            "header_price_2": ""
+        },
+        {
+            "nombre": "Café Welchez",
+            "items": [
+                {
+                    "nombre": "Bolsa de 48oz",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 290,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Bolsa de 12oz",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 90,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Saco de Yute 12oz",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 100,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Bolsa Premium",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 161,
+                    "precio_2": 0,
+                    "activo": true
+                }
+            ],
+            "activa": true,
+            "mask_height": 141,
+            "header_price_1": "",
+            "header_price_2": ""
+        },
+        {
+            "nombre": "Bebidas Frías",
+            "items": [
+                {
+                    "nombre": "Maya Frozen",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 85,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Té Frío",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 38,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Naranjada",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 38,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Limonada",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 38,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Licuados de Fruta",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 40,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Licuado Mixto",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 45,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Sodas",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 30,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Agua Litro",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 30,
+                    "precio_2": 0,
+                    "activo": true
+                },
+                {
+                    "nombre": "Agua 1/2 Litro",
+                    "descripcion": "",
+                    "nivel": 1,
+                    "precio": 20,
+                    "precio_2": 0,
+                    "activo": true
+                }
+            ],
+            "activa": true,
+            "mask_height": 282,
+            "header_price_1": "",
+            "header_price_2": ""
+        }
+    ],
+    "lugar": "Santa Isabel, Honduras",
+    "activo": true,
+    "texto_menu": "Le invitamos a saborear el exquisito sabor de este especial Café, una fina variedad cultivada a más de 1,100 pies de altura, con un tueste cuidadosamente afinado para el realce de las características propias del café de esta región."
+}

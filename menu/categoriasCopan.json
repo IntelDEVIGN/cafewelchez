@@ -1,0 +1,64 @@
+{
+	"nombre": "Al que Madruga",
+	"orden":11000,
+	"activa": true,
+	"mask_height": 624,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Para Endulzar el Día",
+	"orden":12000,
+	"activa": true,
+	"mask_height": 624,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Bebidas Calientes",
+	"orden":13000,
+	"activa": true,
+	"mask_height": 480,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Sandwiches",
+	"orden":14000,
+	"activa": true,
+	"mask_height": 288,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Ensaladas",
+	"orden":15000,
+	"activa": true,
+	"mask_height": 288,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Bebidas Frías",
+	"orden":16000,
+	"activa": true,
+	"mask_height": 624,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Smoothies",
+	"orden":17000,
+	"activa": true,
+	"mask_height": 240,
+	"header_price_1": "",
+	"header_price_2": ""
+},
+{
+	"nombre": "Café Welchez",
+	"orden":18000,
+	"activa": true,
+	"mask_height": 192,
+	"header_price_1": "",
+	"header_price_2": ""
+}

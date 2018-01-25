@@ -1,0 +1,870 @@
+{
+  "nombre": "San Pedro Sula",
+  "categorias": [
+    {
+      "nombre": "Al Que Madruga",
+      "items": [
+        {
+          "nombre": "Madrugada Maya",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 170,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Capricho Mañanero",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 100,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Montecristo",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 145,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Amor Amor",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 130,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Omelette",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 140,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Huevos Marinita",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 170,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Madame Copán",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 175,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Frijolero",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Yogurt Casero",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 140,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Cazuela Criolla",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 175,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "La Flamenca",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 120,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Pie de Queso y Panceta",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 120,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Baleada Sencilla",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 80,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Baleada Suprema",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 100,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Waffles",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 120,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Chilaquiles Copanecos",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 185,
+          "precio_2": 0,
+          "activo": true
+        }
+      ],
+      "activa": true,
+      "mask_height": 624,
+      "header_price_1": "",
+      "header_price_2": ""
+    },
+    {
+      "nombre": "Bebidas Calientes",
+      "items": [
+        {
+          "nombre": "Café Americano",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 32,
+          "precio_2": 42,
+          "activo": true
+        },
+        {
+          "nombre": "Café Latte",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 40,
+          "precio_2": 50,
+          "activo": true
+        },
+        {
+          "nombre": "Café Espresso",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 32,
+          "precio_2": 42,
+          "activo": true
+        },
+        {
+          "nombre": "Cappuccino",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 55,
+          "activo": true
+        },
+        {
+          "nombre": "Latte Caramel Macchiato",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 50,
+          "precio_2": 60,
+          "activo": true
+        },
+        {
+          "nombre": "Chai Welchez",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 40,
+          "precio_2": 50,
+          "activo": true
+        },
+        {
+          "nombre": "Café Mocha",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 55,
+          "activo": true
+        },
+        {
+          "nombre": "Café Amaretto",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 55,
+          "activo": true
+        },
+        {
+          "nombre": "Chocolate Caliente",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 35,
+          "precio_2": 45,
+          "activo": true
+        },
+        {
+          "nombre": "Té Caliente",
+          "descripcion": "Manzanilla o Negro",
+          "nivel": 1,
+          "precio": 32,
+          "precio_2": 42,
+          "activo": true
+        },
+        {
+          "nombre": "La Chabelita",
+          "descripcion": "Exquisita tizana de frutos rojos, manzana y canela",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 55,
+          "activo": true
+        },
+        {
+          "nombre": "Hierbas Mayas",
+          "descripcion": "Té de zacate limón y menta",
+          "nivel": 1,
+          "precio": 35,
+          "precio_2": 45,
+          "activo": true
+        },
+        {
+          "nombre": "Teppuccino",
+          "descripcion": "Exquisito rooibos servido con tu leche favorita",
+          "nivel": 1,
+          "precio": 50,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Café Cortado",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 35,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Leche Descremada o Deslactosada",
+          "descripcion": "",
+          "nivel": 2,
+          "precio": 5,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Leche de Almendra",
+          "descripcion": "",
+          "nivel": 2,
+          "precio": 10,
+          "precio_2": 0,
+          "activo": true
+        }
+      ],
+      "activa": true,
+      "mask_height": 624,
+      "header_price_1": "8oz",
+      "header_price_2": "12oz"
+    },
+    {
+      "nombre": "Ensaladas y Sopas",
+      "items": [
+        {
+          "nombre": "Ensalada al Gusto",
+          "descripcion": "Fina mezcla de lechugas más tres guarniciones y el aderezo de su elección",
+          "nivel": 1,
+          "precio": 160,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Carnes:",
+          "descripcion": "Pollo o Prosciutto",
+          "nivel": 2,
+          "precio": 0,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Guarniciones:",
+          "descripcion": "Zuchinni, berenjenas, tomate o chile morrón asado",
+          "nivel": 2,
+          "precio": 0,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Aderezos:",
+          "descripcion": "Pesto, Berry Verde, Copán Blue o Balsámico",
+          "nivel": 2,
+          "precio": 0,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Del Huerto",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 125,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Berry Verde",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 175,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Guacamaya",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 175,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Sopa Tomatificante",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 100,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Crema Campesina",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 100,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Mini Sopa",
+          "descripcion": "",
+          "nivel": 2,
+          "precio": 55,
+          "precio_2": null,
+          "activo": true
+        }
+      ],
+      "activa": true,
+      "mask_height": 528,
+      "header_price_1": "",
+      "header_price_2": ""
+    },
+    {
+      "nombre": "Sandwiches",
+      "items": [
+        {
+          "nombre": "Pesto y Prosciutto",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 185,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Pavo Real",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 170,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Del Huerto",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 160,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "El Prensadito",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 185,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "El Señor de los Quesos",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 170,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "El Famoso Pepito",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 200,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "El Nórdico",
+          "descripcion": "Todos los Sandwiches van servidos con chips de yuca",
+          "nivel": 1,
+          "precio": 210,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Todos los Sandwiches",
+          "descripcion": "van servidos con chips de yuca",
+          "nivel": 2,
+          "precio": 0,
+          "precio_2": 0,
+          "activo": false
+        },
+        {
+          "nombre": "Opcional Extra",
+          "descripcion": "Sustituye tus chips por Ensalada o Sopa",
+          "nivel": 2,
+          "precio": 10,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Para los Niños",
+          "descripcion": "Sandwich de Mantequilla de Maní y Mermelada o Sandwich de Fundido de Queso",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        }
+      ],
+      "activa": true,
+      "mask_height": 624,
+      "header_price_1": "",
+      "header_price_2": ""
+    },
+    {
+      "nombre": "Postres",
+      "items": [
+        {
+          "nombre": "El Germánico",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 68,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Pastel de Óreo",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 68,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Tres Leches",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Pastel de Zanahoria y Nuez",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 68,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "El Bananero",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Quesadilla Copaneca",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Suspiro de Limón",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Cheese Cake",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Mocha Cheese Cake",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 80,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Croque de Manzana",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Torta Chilena",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Carlota de Frutos Rojos",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 85,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Pastel de Fresas con Crema",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Flan de Coco",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 60,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Flan de Queso",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 60,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Flan de Café",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 60,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Brazo Gitano",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 60,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Galletas de Avena",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 37,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Paris Copán",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 98,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Croissant con Jalea y Mantequilla",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 58,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Biscotti",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 35,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Muffins de Temporada",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 60,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Noche y Día",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 85,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Pastel de Snickers",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 85,
+          "precio_2": null,
+          "activo": true
+        }
+      ],
+      "activa": true,
+      "mask_height": 624,
+      "header_price_1": "",
+      "header_price_2": ""
+    },
+    {
+      "nombre": "Bebidas Frías",
+      "items": [
+        {
+          "nombre": "Granita de Café",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 50,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Granita de Temporada",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 50,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Maya Frozen",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 85,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Mocha Frío",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 56,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Rosalila",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 70,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Banoffee",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 70,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Chai Welchez Frozen",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 70,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Caramel Welchez",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 70,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Malteadas",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 65,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Chai Frío",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Brisa Naranja",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Fusion Berry",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Pasión Verde",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Té Frío",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 40,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Naranjada",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Limonada",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "con Soda",
+          "descripcion": "",
+          "nivel": 2,
+          "precio": 50,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Jugo de Naranja",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Sodas",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 40,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Lassi Frutos Silvestres",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Lassi Arándano y Coco",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Lassi Fresas y Cardamomo",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 75,
+          "precio_2": null,
+          "activo": true
+        },
+        {
+          "nombre": "Licuado de Frutas",
+          "descripcion": "Sandía, Piña o Papaya",
+          "nivel": 1,
+          "precio": 45,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Licuado de Fresas",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 60,
+          "precio_2": 0,
+          "activo": true
+        },
+        {
+          "nombre": "Botella con Agua",
+          "descripcion": "",
+          "nivel": 1,
+          "precio": 35,
+          "precio_2": 0,
+          "activo": true
+        }
+      ],
+      "activa": true,
+      "mask_height": 528,
+      "header_price_1": "",
+      "header_price_2": ""
+    }
+  ],
+  "lugar": "San Pedro Sula, Honduras",
+  "activo": true,
+  "texto_menu": "Café Welchez Gourmet es cultivado en las montañas del occidente de Honduras, en Finca Santa Isabel a pocos minutos de las mundialmente famosas Ruinas de Copán. Los Viajeros también pueden disfrutar de nuestro “Copan Coffee Tour”"
+}
