@@ -1,0 +1,90 @@
+{% extends "baseList.html" %}
+{% load humanize %}
+{% load static %}{% block title %}Categorías{% endblock %}{% block page-title %}Categorías{% endblock %}
+{% block theader %}
+    <th>Orden</th>
+    <th>Categoría</th>
+    <th>Activa</th>
+    <th>Altura en Menú</th>
+{#    <th>Título Precio 1</th>#}
+{#    <th>Título Precio 2</th>#}
+{% endblock %}
+{% block tbody %}
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object.orden }}</td>
+            <td><a href="{{ object.get_absolute_url }}">{{ object }}</a>
+                {% if request.user.is_superuser %}
+                    <span class="minipopuplink">
+                        <a id="cursorPos-c{{ object.id }}" href="#" onclick="openModal_c{{ object.id }}()">
+                            <i class="material-icons">more_vert</i></a>
+                    </span>
+                {% endif %}</td>
+            <td>{{ object.activa|yesno }}</td>
+            <td>{{ object.mask_height }}</td>
+{#            <td>{{ object.header_price_1 }}</td>#}
+{#            <td>{{ object.header_price_2 }}</td>#}
+        </tr>
+    {% endfor %}
+{% endblock %}{% block footer %}
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large darkblue">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating blue"
+                   href="{% url 'menu_categoria_create' %}"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
+    {% if request.user.is_superuser %}
+        {% for object in object_list %}
+            <div class="modal-open">
+                <div class="minipopup3" id="modal_c{{ object.id }}">
+                    <ul class="ui-listview">
+                        <li>
+                            <a title="Seleccionar Categoría {{ object }}" data-ajax="false"
+                               onclick="window.location.reload(false);"
+                               href="{{ object.get_absolute_url }}">
+                                <i class="material-icons">arrow_forward</i> Seleccionar</a></li>
+                        <li>
+                            <a title="Editar Categoría {{ object }}"
+                               href="{{ object.get_update_url }}">
+                                <i class="material-icons">edit</i> Editar</a></li>
+                        <li>
+                            <a title="Eliminar Categoría {{ object }}"
+                               href="{{ object.get_delete_url }}">
+                                <i class="material-icons">delete</i> Borrar</a></li>
+                    </ul>
+                    <div class="ui-popup-arrow-container ui-popup-arrow-t">
+                        <div class="ui-popup-arrow ui-body-a ui-overlay-shadow"></div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+
+                $(document).ready(function () {
+                    $('#cursorPos-c{{ object.id }}').click(function (e) {
+                        var offset = $(this).offset();
+                        console.log('offset: ' + offset);
+                        console.log('offset.top: ' + offset.top);
+                        console.log('offset.left: ' + offset.left);
+                        console.log('e.clientX: ' + e.clientX);
+                        console.log('e.clientY: ' + e.clientY);
+
+                        $('.modal-open').css({
+                            'top': (offset.top + 36),
+                            'left': (offset.left - 52)
+                        });
+                    });
+                });
+
+                function openModal_c{{ object.id }}() {
+                    $('#modal_c{{ object.id }}').openModal();
+                }
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

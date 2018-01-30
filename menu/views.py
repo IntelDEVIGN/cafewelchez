@@ -1,6 +1,17 @@
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, ListView, UpdateView, CreateView
 from .models import Restaurante, Categoria, Item
 from .forms import RestauranteForm, CategoriaForm, ItemForm
+
+
+def indice(request):
+    """
+    :param request:
+    :return: Listado de Restaurantes
+    """
+
+    restaurantes = Restaurante.objects.all()
+    return render(request, "menu/index.html", {'restaurantes': restaurantes})
 
 
 class RestauranteListView(ListView):

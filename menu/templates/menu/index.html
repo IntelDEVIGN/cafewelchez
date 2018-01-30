@@ -1,0 +1,21 @@
+{% extends "baseList.html" %}
+{% load humanize %}
+{% block title %}Inicio{% endblock %}
+{% block page-title %}Inicio{% endblock %}
+{% block content %}
+    <div class="card">
+        {% if request.user.is_authenticated %}
+            <p>Hola {{ request.user.username|title }}, ingresaste por última vez
+                hace {{ request.user.last_login|timesince }}</p>
+        {% else %}
+            <p>Bienvenido Invitado!</p>
+        {% endif %}
+        <main>
+            <h5>{{ restaurantes.count }} Restaurantes</h5>
+            {% for restaurante in restaurantes %}
+                <p><strong>{{ restaurante }}</strong>  {{ restaurante.categorias.count }} Categorías</p>
+            {% endfor %}
+        </main>
+    </div>
+{% endblock %}
+

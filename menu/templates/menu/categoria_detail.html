@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'menu_categoria_list' %}">Categoria Listing</a></p>
+<table class="table">
+<tr><td>nombre</td><td>{{ object.nombre }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>creada</td><td>{{ object.creada }}</td></tr>
+<tr><td>actualizada</td><td>{{ object.actualizada }}</td></tr>
+<tr><td>activa</td><td>{{ object.activa }}</td></tr>
+<tr><td>mask_height</td><td>{{ object.mask_height }}</td></tr>
+<tr><td>header_price_1</td><td>{{ object.header_price_1 }}</td></tr>
+<tr><td>header_price_2</td><td>{{ object.header_price_2 }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Categoria</a>
+
+{% endblock %}

@@ -1,9 +1,11 @@
 from django.conf.urls import url, include
 from rest_framework import routers
+
 from . import api
 from . import views
 from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
+# from material.frontend import urls as frontend_urls
 
 router = routers.DefaultRouter()
 router.register(r'restaurante', api.RestauranteViewSet)
@@ -25,6 +27,10 @@ urlpatterns += (
 urlpatterns += (
     url(r'^docs/', include_docs_urls(title='API Menús Cafe Welchez')),
 )
+#
+# urlpatterns += (
+#     url(r'', include(frontend_urls)),
+# )
 
 urlpatterns += (
     # urls for Restaurante

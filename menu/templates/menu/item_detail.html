@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'menu_item_list' %}">Item Listing</a></p>
+<table class="table">
+<tr><td>nombre</td><td>{{ object.nombre }}</td></tr>
+<tr><td>slug</td><td>{{ object.slug }}</td></tr>
+<tr><td>creado</td><td>{{ object.creado }}</td></tr>
+<tr><td>actualizado</td><td>{{ object.actualizado }}</td></tr>
+<tr><td>descripcion</td><td>{{ object.descripcion }}</td></tr>
+<tr><td>precio</td><td>{{ object.precio }}</td></tr>
+<tr><td>precio_2</td><td>{{ object.precio_2 }}</td></tr>
+<tr><td>activo</td><td>{{ object.activo }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Item</a>
+
+{% endblock %}

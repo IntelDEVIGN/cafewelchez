@@ -3,6 +3,15 @@ from django import forms
 from .models import Restaurante, Categoria, Item
 
 
+def regrabar(modeladmin, request, queryset):
+    for objeto in queryset:
+        objeto.creado = '2018-01-20'
+        objeto.save()
+
+
+regrabar.short_description = "Regrabar"
+
+
 class RestauranteAdminForm(forms.ModelForm):
 
     class Meta:
@@ -44,6 +53,7 @@ class ItemAdminForm(forms.ModelForm):
 
 
 class ItemAdmin(admin.ModelAdmin):
+    actions = [regrabar]
     form = ItemAdminForm
     list_display = ['orden', 'nombre', 'activo', 'descripcion', 'precio', 'precio_2', 'slug', 'creado', 'actualizado']
     readonly_fields = ['slug', 'creado', 'actualizado']

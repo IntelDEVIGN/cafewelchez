@@ -2,7 +2,6 @@
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
 *$py.class
 
 # C extensions
@@ -112,6 +111,7 @@ venv.bak/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+.idea/jsLibraryMappings.xml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -159,6 +159,11 @@ fabric.properties
 /static/
 /menu/migrations/
 
-
-assets/
+/assets/jQuery/jquery.mobile-1.4.5.min.map
+/assets/jQuery/jquery.mobile-1.4.5.js
+/assets/jQuery/jquery.dataTables.min.js
+/assets/css/materialize-0.97.5.css
+/assets/materialize-datatables-master/
+assets/datatables/
+assets/img/
 templates/
