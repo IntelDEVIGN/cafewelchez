@@ -1,8 +1,8 @@
 {% extends "baseForm.html" %}
 {% load staticfiles %}
 {% load material_form %}
-{% block title %}Datos de Restaurante{% endblock %}
-{% block page-title %}Datos de Restaurante{% endblock %}
+{% block cTitle %}Datos de Restaurante{% endblock %}
+{% block pTitle %}Datos de Restaurante{% endblock %}
 {% block content %}
 {#    <p><a class="btn btn-default" href="{% url 'menu_restaurante_list' %}">Restaurante Listing</a></p>#}
     <div class="row valign change-form">
@@ -14,7 +14,7 @@
                     {% csrf_token %}
                     {% form form=form %}{% endform %}
                     <div class="right-align">
-                        <button type="submit" name="_submit" class="waves-effect waves-light btn">Submit</button>
+                        <button type="submit" name="_submit" class="waves-effect waves-light btn">Guardar</button>
                     </div>
                 </form>
             </div>

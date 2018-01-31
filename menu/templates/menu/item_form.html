@@ -1,8 +1,8 @@
 {% extends "baseForm.html" %}
 {% load staticfiles %}
 {% load material_form %}
-{% block title %}Datos de Plato{% endblock %}
-{% block page-title %}Datos de Plato{% endblock %}
+{% block cTitle %}Datos de Plato{% endblock %}
+{% block pTitle %}Datos de Plato{% endblock %}
 {% block content %}
     <div class="row valign change-form">
         <div class="col s12 m8 offset-m2 l8 offset-l2">
@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     {% form form=form %}{% endform %}
                     <div class="right-align">
-                        <button type="submit" name="_submit" class="waves-effect waves-light btn">Submit</button>
+                        <button type="submit" name="_submit" class="waves-effect waves-light btn">Guardar</button>
                     </div>
                 </form>
             </div>
