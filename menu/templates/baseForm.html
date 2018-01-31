@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" media="screen,projection"
           href="{% static "materialize/css/materialize.min.css" %}"/>
     {% include 'material/includes/material_css.html' %} {# de Django_material_forms #}
-{% endblock %}{% block title %}formTitle{% endblock %}
+{% endblock %}{% block cTitle %}formTitle{% endblock %}
 {% block content %}
     <div class="card"><!-- topcontainer -->
     </div><!-- /topcontainer -->
@@ -23,4 +23,5 @@
         $('select').material_select();
     })
     </script>
+    {% block extrajs %}{% endblock %}
 {% endblock %}

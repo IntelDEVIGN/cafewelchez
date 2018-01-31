@@ -7,8 +7,9 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Item
         fields = (
-            # 'orden',
+            'orden',
             'nombre',
+            'categoria',
             'descripcion',
             'nivel',
             'precio',
@@ -23,13 +24,14 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class CategoriaSerializer(serializers.ModelSerializer):
 
-    items = ItemSerializer(many=True)
+    items = ItemSerializer(many=True, read_only=True)
 
     class Meta:
         model = models.Categoria
         fields = (
-            # 'orden',
+            'orden',
             'nombre',
+            'restaurante',
             'items',
             'activa',
             'mask_height',
@@ -39,24 +41,24 @@ class CategoriaSerializer(serializers.ModelSerializer):
             # 'creada',
             # 'actualizada',
         )
-        depth = 1
+        # depth = 1
 
 
 class RestauranteSerializer(serializers.ModelSerializer):
 
-    categorias = CategoriaSerializer(many=True)
+    categorias = CategoriaSerializer(many=True, read_only=True)
 
     class Meta:
         model = models.Restaurante
         fields = (
-            # 'orden',
+            'orden',
             'nombre',
             'categorias',
-            # 'lugar',
+            'lugar',
             'activo',
             'texto_menu',
             # 'slug',
             # 'creado',
             # 'actualizado',
         )
-        depth = 5
+        # depth = 5

@@ -10,7 +10,7 @@ class RestauranteForm(forms.ModelForm):
         model = Restaurante
         fields = ['nombre', 'lugar', 'activo', 'texto_menu']
         widgets = {
-            'texto_menu': Textarea(attrs={'cols': 80, 'rows': 5})
+            'texto_menu': Textarea(attrs={'cols': 40, 'rows': 2})
         }
 
     layout = Layout('nombre',

@@ -24,6 +24,28 @@ main {
     margin-bottom: 0
 }
 
+.text-right {
+    text-align: right;
+}
+
+.table-col-label {
+    width: 25%;
+}
+
+#table-detail > thead > tr > th {
+    font-size: 24px;
+    line-height: 24px;
+    font-family: -apple-system, 'Fira Sans', 'Segoe UI', 'Roboto', 'Helvetica', sans-serif !important;
+    font-weight: 200;
+    padding-left: 8px;
+}
+
+#table-detail > thead > tr > th > i {
+    font-size: 24px;
+    vertical-align: top !important;
+    padding-right: 4px
+}
+
 .container-fluid {
     padding: 8px;
 }
@@ -201,14 +223,17 @@ span.minipopuplink {
 }
 
 span.minipopuplink a i {
-    color: #cdcdcd !important;
+    color: gray !important;
     padding-right: 8px;
 }
 
+#id_texto_menu{
+    height: auto !important;
+}
 span.minipopuplink i:hover,
 span.minipopuplink i:active,
 span.minipopuplink i:focus {
-    color: #0d47a1v !important;
+    color: #0d47a1 !important;
 }
 
 .minipopup3 ul {

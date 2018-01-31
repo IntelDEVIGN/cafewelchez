@@ -15,7 +15,7 @@ class Restaurante(models.Model):
     # Fields
     orden = models.IntegerField(null=True, blank=True)
     nombre = models.CharField(max_length=100)
-    activo = models.BooleanField()
+    activo = models.BooleanField(default=True)
     lugar = models.CharField(max_length=100)
     texto_menu = models.TextField(max_length=255)
     slug = extension_fields.AutoSlugField(populate_from='nombre', blank=True, overwrite=True)
@@ -44,7 +44,7 @@ class Categoria(models.Model):
     # Fields
     orden = models.IntegerField(null=True, blank=True)
     nombre = models.CharField(max_length=100)
-    activa = models.BooleanField()
+    activa = models.BooleanField(default=True)
     mask_height = models.IntegerField(null=True, blank=True)
     header_price_1 = models.TextField(max_length=100, null=True, blank=True)
     header_price_2 = models.TextField(max_length=100, null=True, blank=True)
@@ -78,7 +78,7 @@ class Item(models.Model):
     # Fields
     orden = models.IntegerField(null=True, blank=True)
     nombre = models.CharField(max_length=100)
-    activo = models.BooleanField()
+    activo = models.BooleanField(default=True)
     descripcion = models.CharField(max_length=100, null=True, blank=True)
     nivel = models.IntegerField(null=True, blank=True, default=1)
     precio = models.IntegerField(null=True, blank=True)
