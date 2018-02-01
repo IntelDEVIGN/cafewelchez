@@ -21,11 +21,12 @@ class RestauranteForm(forms.ModelForm):
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
-        fields = ['nombre', 'activa', 'mask_height', 'header_price_1', 'header_price_2', 'restaurante']
+        fields = ['nombre', 'activa', 'mask_height', 'header_price_1', 'header_price_2']
 
 
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['nombre', 'descripcion', 'precio', 'precio_2', 'activo', 'categoria']
+        fields = ['nombre', 'descripcion', 'precio', 'precio_2', 'activo']
+        exclude = ['categoria']
 

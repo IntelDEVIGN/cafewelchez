@@ -79,7 +79,7 @@ class Item(models.Model):
     orden = models.IntegerField(null=True, blank=True)
     nombre = models.CharField(max_length=100)
     activo = models.BooleanField(default=True)
-    descripcion = models.CharField(max_length=100, null=True, blank=True)
+    descripcion = models.CharField(max_length=100, null=True, blank=True, default=" ")
     nivel = models.IntegerField(null=True, blank=True, default=1)
     precio = models.IntegerField(null=True, blank=True)
     precio_2 = models.IntegerField(null=True, blank=True)

@@ -1,17 +1,160 @@
-{% extends "base.html" %}
+{% extends "baseDetail.html" %}
 {% load static %}
-{% block content %}
-<p><a class="btn btn-default" href="{% url 'menu_categoria_list' %}">Categoria Listing</a></p>
-<table class="table">
-<tr><td>nombre</td><td>{{ object.nombre }}</td></tr>
-<tr><td>slug</td><td>{{ object.slug }}</td></tr>
-<tr><td>creada</td><td>{{ object.creada }}</td></tr>
-<tr><td>actualizada</td><td>{{ object.actualizada }}</td></tr>
-<tr><td>activa</td><td>{{ object.activa }}</td></tr>
-<tr><td>mask_height</td><td>{{ object.mask_height }}</td></tr>
-<tr><td>header_price_1</td><td>{{ object.header_price_1 }}</td></tr>
-<tr><td>header_price_2</td><td>{{ object.header_price_2 }}</td></tr>
-</table>
-<a class="btn btn-primary" href="{{object.get_update_url}}">Edit Categoria</a>
+{% load humanize %}
+{% block cTitle %}Detalle de Categoría{% endblock %}
+{% block pTitle %}Detalle de Categoría{% endblock %}{% block thhead %}
+    <a href="{{ categoria.restaurante.get_absolute_url }}"><i class="material-icons">store</i>{{ categoria.restaurante }}</a> > <i class="material-icons">list_view</i>{{categoria }}{% if request.user.is_superuser %}
+        <span class="minipopuplink right">
+        <a id="curPos_C{{ categoria.id }}" href="#modal_C{{ categoria.id }}" class="modal-trigger"
+           onclick="openModal_C{{ categoria.id }}()">
+            <i class="material-icons">more_horiz</i></a>
+    </span>{% endif %}{% endblock %}
+{% block thbody %}
+{#    <tr>#}
+{#        <td class="text-right table-col-label">Categoría</td>#}
+{#        <td class=""><strong>{{ categoria }}</strong></td>#}
+{#    </tr>#}
+    <tr>
+        <td class="text-right table-col-label">Orden</td>
+        <td class=""><strong>{{ categoria.orden }}</strong></td>
+    </tr>
+    <tr>
+        <td class="text-right">Activa</td>
+        <td class=""><strong>{{ categoria.activa|yesno }}</strong></td>
+    </tr>
+    <tr>
+        <td class="text-right">Altura en Menú</td>
+        <td class=""><strong>{{ categoria.mask_height }}</strong></td>
+    </tr>{% comment %}
+    <tr>
+        <td class="text-right">Restaurante</td>
+        <td class=""><strong>{{ categoria.restaurante }}</strong></td>
+    </tr>
+    <tr>
+        <td class="text-right">Creada</td>
+        <td class=""><em>{{ categoria.creada|date:'D d/M/Y' }}</em></td>
+    </tr>
+    <tr>
+        <td class="text-right">Actualizada</td>
+        <td class=""><em>{{ categoria.actualizada|date:'D d/M/Y' }}</em></td>{% endcomment %}
+    </tr>{% endblock %}
+{% block tdhead %}
+    <th data-priority="2">Orden</th>
+    <th data-priority="1">Plato</th>
+    <th data-priority="5">Descripción</th>
+    <th class="center" data-priority="3">Precio 1</th>
+    <th class="center" data-priority="6">Precio 2</th>
+    <th class="center" data-priority="4">Activo</th>
+{% endblock %}
+{% block tdbody %}
+    {% for plato in categoria.items.all %}
+        <tr>
+            <td>{{ plato.orden }}</td>
+            <td><a href="{{ plato.get_absolute_url }}">{% if plato.nivel > 1 %}&nbsp;&nbsp;&nbsp;
+                &hellip;{% endif %}{{ plato }}</a>
+                {% if request.user.is_superuser %}
+                    <span class="minipopuplink">
+                        <a id="curPos_P{{ plato.id }}" href="#" onclick="openModal_P{{ plato.id }}()">
+                            <i class="material-icons">more_vert</i></a>
+                    </span>
+                {% endif %}</td>
+            <td>{{ plato.descripcion }}</td>
+            <td class="center">{{ plato.precio|intcomma }}</td>
+            <td class="center">{{ plato.precio_2|intcomma }}</td>
+            <td class="center">{{ plato.activo|yesno }}</td>
+        </tr>
+    {% endfor %}
+{% endblock %}{% block footer %}{% if request.user.is_superuser %}{# minipopup Header #}
+  <div class="modal-open">
+        <div class="minipopup3 modal-content" id="modal_C{{ categoria.id }}">
+            <ul class="ui-listview">
+                <li>
+                    <a title="Agregar Categoría Nueva"
+                       href="{% url 'menu_categoria_create' restaurante_id=categoria.restaurante.pk %}">
+                        <i class="material-icons">add</i> Agregar</a></li>
+                <li>
+                <a title="Editar Categoría {{ categoria }}"
+                       href="{{ categoria.get_update_url }}">
+                        <i class="material-icons">edit</i> Editar</a></li>
+                <li>
+                    <a title="Eliminar Categoría {{ categoria }}"
+                       href="{{ categoria.get_delete_url }}">
+                        <i class="material-icons">delete</i> Borrar</a></li>
+            </ul>
+            <div class="ui-popup-arrow-container ui-popup-arrow-t">
+                <div class="ui-popup-arrow ui-body-a ui-overlay-shadow"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#curPos_C{{ categoria.id }}').click(function () {
+                var offset = $(this).offset();
+                $('.modal-open').css({
+                    'top': (offset.top + 36),
+                    'left': (offset.left - 52)
+                });
+            });
+        });
 
+        function openModal_C{{ categoria.id }}() {
+            $('#modal_C{{ categoria.id }}').openModal();
+        }
+    </script>{% endif %}
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large darkblue">
+            <i class="large material-icons">add</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating green darken-1"
+                   href="{% url 'menu_item_create' categoria_id=categoria.pk %}"><i class="material-icons">local_dining</i></a>
+            </li>
+            <li><a class="btn-floating blue darken-1"
+                   href="{% url 'menu_categoria_create' restaurante_id=categoria.restaurante.pk %}"><i class="material-icons">view_list</i></a>
+            </li>
+            <li><a class="btn-floating red darken-1"
+                   href="{% url 'menu_restaurante_create' %}"><i class="material-icons">store</i></a></li>
+        </ul>
+    </div>
+    {% if request.user.is_superuser %}
+        {% for plato in categoria.items.all %}
+            <div class="modal-open">
+                <div class="minipopup3" id="modal_P{{ plato.id }}">
+                    <ul class="ui-listview">
+                        <li>
+                            <a title="Seleccionar Plato {{ plato }}" data-ajax="false"
+                               onclick="window.location.reload(false);"
+                               href="{{ plato.get_absolute_url }}">
+                                <i class="material-icons">arrow_forward</i> Seleccionar</a></li>
+                        <li>
+                            <a title="Editar Plato {{ plato }}"
+                               href="{{ plato.get_update_url }}">
+                                <i class="material-icons">edit</i> Editar</a></li>
+                        <li>
+                            <a title="Eliminar Plato {{ plato }}"
+                               href="{{ plato.get_delete_url }}">
+                                <i class="material-icons">delete</i> Borrar</a></li>
+                    </ul>
+                    <div class="ui-popup-arrow-container ui-popup-arrow-t">
+                        <div class="ui-popup-arrow ui-body-a ui-overlay-shadow"></div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#curPos_P{{ plato.id }}').click(function () {
+                        var offset = $(this).offset();
+                        $('.modal-open').css({
+                            'top': (offset.top + 36),
+                            'left': (offset.left - 52)
+                        });
+                    });
+                });
+
+                function openModal_P{{ plato.id }}() {
+                    $('#modal_P{{ plato.id }}').openModal();
+                }
+            </script>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

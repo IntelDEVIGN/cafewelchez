@@ -2,31 +2,41 @@
 {% load humanize %}
 {% load static %}{% block cTitle %}Categorías{% endblock %}{% block pTitle %}Categorías{% endblock %}
 {% block theader %}
-    <th>Orden</th>
-    <th>Categoría</th>
-    <th>Activa</th>
-    <th>Altura en Menú</th>
-{#    <th>Título Precio 1</th>#}
-{#    <th>Título Precio 2</th>#}
+    <th data-priority="3">Orden</th>
+    <th data-priority="4">Restaurante</th>
+    <th data-priority="1">Categoría</th>
+    <th data-priority="2">Activa</th>
+    <th data-priority="5">Altura en Menú</th>
 {% endblock %}
 {% block tbody %}
-    {% for object in object_list %}
+    {% for categoria in categoria_list %}
         <tr>
-            <td>{{ object.orden }}</td>
-            <td><a href="{{ object.get_absolute_url }}">{{ object }}</a>
+            <td>
+                <small>{{ categoria.orden }}</small>
+            </td>
+            <td>
+                <i class="material-icons">store</i>{{ categoria.restaurante }}
+            </td>
+            <td><a href="{{ categoria.get_absolute_url }}">{{ categoria }}</a>
                 {% if request.user.is_superuser %}
                     <span class="minipopuplink">
-                        <a id="cursorPos-c{{ object.id }}" href="#" onclick="openModal_c{{ object.id }}()">
+                        <a id="curPos_C{{ categoria.id }}" href="#" onclick="openModal_C{{ categoria.id }}()">
                             <i class="material-icons">more_vert</i></a>
                     </span>
                 {% endif %}</td>
-            <td>{{ object.activa|yesno }}</td>
-            <td>{{ object.mask_height }}</td>
-{#            <td>{{ object.header_price_1 }}</td>#}
-{#            <td>{{ object.header_price_2 }}</td>#}
+            <td class="center">{{ categoria.activa|yesno }}</td>
+            <td class="center">{{ categoria.mask_height }}</td>
         </tr>
     {% endfor %}
-{% endblock %}{% block footer %}
+{% endblock %}
+{% block tdfoot %}
+    <td><small>Orden</small></td>
+    <td><small>Restaurante</small></td>
+    <td><small>Categoría</small></td>
+    <td><small>Activa</small></td>
+    <td><small>Altura en Menú</small></td>
+{% endblock %}
+{% block footer %}{% comment %}
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large darkblue">
             <i class="large material-icons">add</i>
@@ -38,24 +48,24 @@
             <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
             <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
         </ul>
-    </div>
+    </div>{% endcomment %}
     {% if request.user.is_superuser %}
-        {% for object in object_list %}
+        {% for categoria in categoria_list %}
             <div class="modal-open">
-                <div class="minipopup3" id="modal_c{{ object.id }}">
+                <div class="minipopup3" id="modal_C{{ categoria.id }}">
                     <ul class="ui-listview">
                         <li>
-                            <a title="Seleccionar Categoría {{ object }}" data-ajax="false"
+                            <a title="Seleccionar Categoría {{ categoria }}" data-ajax="false"
                                onclick="window.location.reload(false);"
-                               href="{{ object.get_absolute_url }}">
+                               href="{{ categoria.get_absolute_url }}">
                                 <i class="material-icons">arrow_forward</i> Seleccionar</a></li>
                         <li>
-                            <a title="Editar Categoría {{ object }}"
-                               href="{{ object.get_update_url }}">
+                            <a title="Editar Categoría {{ categoria }}"
+                               href="{{ categoria.get_update_url }}">
                                 <i class="material-icons">edit</i> Editar</a></li>
                         <li>
-                            <a title="Eliminar Categoría {{ object }}"
-                               href="{{ object.get_delete_url }}">
+                            <a title="Eliminar Categoría {{ categoria }}"
+                               href="{{ categoria.get_delete_url }}">
                                 <i class="material-icons">delete</i> Borrar</a></li>
                     </ul>
                     <div class="ui-popup-arrow-container ui-popup-arrow-t">
@@ -66,23 +76,19 @@
             <script type="text/javascript">
 
                 $(document).ready(function () {
-                    $('#cursorPos-c{{ object.id }}').click(function (e) {
-                        var offset = $(this).offset();
-                        console.log('offset: ' + offset);
-                        console.log('offset.top: ' + offset.top);
-                        console.log('offset.left: ' + offset.left);
-                        console.log('e.clientX: ' + e.clientX);
-                        console.log('e.clientY: ' + e.clientY);
+                    $('#curPos_C{{ categoria.id }}').click(setModalPos);
 
+                    function setModalPos() {
+                        var offset = $(this).offset();
                         $('.modal-open').css({
                             'top': (offset.top + 36),
                             'left': (offset.left - 52)
                         });
-                    });
+                    }
                 });
 
-                function openModal_c{{ object.id }}() {
-                    $('#modal_c{{ object.id }}').openModal();
+                function openModal_C{{ categoria.id }}() {
+                    $('#modal_C{{ categoria.id }}').openModal();
                 }
             </script>
         {% endfor %}

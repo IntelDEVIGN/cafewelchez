@@ -28,12 +28,16 @@ main {
     text-align: right;
 }
 
+#table-detail > thead > tr > th > i {
+    color: #b48e7399 !important;
+}
+
 .table-col-label {
     width: 25%;
 }
 
 #table-detail > thead > tr > th {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 24px;
     font-family: -apple-system, 'Fira Sans', 'Segoe UI', 'Roboto', 'Helvetica', sans-serif !important;
     font-weight: 200;
@@ -43,7 +47,8 @@ main {
 #table-detail > thead > tr > th > i {
     font-size: 24px;
     vertical-align: top !important;
-    padding-right: 4px
+    padding-right: 4px;
+    width: 28px;
 }
 
 .container-fluid {
@@ -81,11 +86,20 @@ footer {
     height: 48px
 }
 
-#id_activa_container,#id_activo_container {
+#id_activa_container,#id_activo_container, .group {
     padding-top: 24px!important;
     border-bottom: solid 1px #9e9e9e;
     padding-bottom: 9px;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif
+    font-family: -apple-system,BlinkMacSystemFont,"Fira Sans","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue", sans-serif;
+    font-weight: 200 !important;
+}
+
+tr.group:hover {
+    background-color: #ddc3b7 !important;
+}
+
+.group td {
+    font-weight:300 !important;
 }
 
 #id_activa,#id_activo {
@@ -102,6 +116,10 @@ footer {
 /* /forms */
 
 /* dataTables */
+#tabladedatos_length {
+    display: none !important;
+}
+
 #tabladedatos_length > label > select {
     display: unset;
 }
@@ -122,7 +140,7 @@ footer {
 
 #tabladedatos_length > label > i,
 #tabladedatos_filter > label > i {
-    font-size: 42px
+    font-size: 36px
 }
 
 thead {
@@ -131,8 +149,12 @@ thead {
     background: #e9e4e499
 }
 
+i.material-icons {
+    width: 32px;
+}
+
 td, th {
-    padding: 12px 4px
+    padding: 4px;
 }
 
 tr > td > a {
@@ -158,6 +180,10 @@ nav {
     height: 64px !important;
 }
 
+h5.center {
+    font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-weight: 200 !important;
+}
 nav ul a {
     padding: 0 6px !important;
 }
@@ -224,7 +250,7 @@ span.minipopuplink {
 
 span.minipopuplink a i {
     color: gray !important;
-    padding-right: 8px;
+    /*padding-right: 8px;*/
 }
 
 #id_texto_menu{

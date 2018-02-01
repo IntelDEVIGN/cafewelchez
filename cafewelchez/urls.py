@@ -23,6 +23,5 @@ urlpatterns = [
     url(r'^menu/', include('menu.urls')),
     url(r'^login/$', auth_views.login, name='iniciar'),
     url(r'^logout/$', auth_views.logout, name='salir'),
-    url(r'^admin/', admin.site.urls),
     url(r'^$', indice, name='home'),
 ]

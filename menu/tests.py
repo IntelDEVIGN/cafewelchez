@@ -28,7 +28,7 @@ def create_django_contrib_contenttypes_models_contenttype(**kwargs):
     return ContentType.objects.create(**defaults)
 
 
-def create_restaurante(**kwargs):
+def create_R-estaurante(**kwargs):
     defaults = {}
     defaults["nombre"] = "nombre"
     defaults["lugar"] = "lugar"
@@ -47,7 +47,7 @@ def create_categoria(**kwargs):
     defaults["header_price_2"] = "header_price_2"
     defaults.update(**kwargs)
     if "restaurante" not in defaults:
-        defaults["restaurante"] = create_restaurante()
+        defaults["restaurante"] = create_R-estaurante()
     return Categoria.objects.create(**defaults)
 
 
@@ -71,12 +71,12 @@ class RestauranteViewTest(unittest.TestCase):
     def setUp(self):
         self.client = Client()
 
-    def test_list_restaurante(self):
+    def test_list_R-estaurante(self):
         url = reverse('menu_restaurante_list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
-    def test_create_restaurante(self):
+    def test_create_R-estaurante(self):
         url = reverse('menu_restaurante_create')
         data = {
             "nombre": "nombre",
@@ -87,14 +87,14 @@ class RestauranteViewTest(unittest.TestCase):
         response = self.client.post(url, data=data)
         self.assertEqual(response.status_code, 302)
 
-    def test_detail_restaurante(self):
-        restaurante = create_restaurante()
+    def test_detail_R-estaurante(self):
+        restaurante = create_R-estaurante()
         url = reverse('menu_restaurante_detail', args=[restaurante.slug,])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
-    def test_update_restaurante(self):
-        restaurante = create_restaurante()
+    def test_update_R-estaurante(self):
+        restaurante = create_R-estaurante()
         data = {
             "nombre": "nombre",
             "lugar": "lugar",
@@ -126,7 +126,7 @@ class CategoriaViewTest(unittest.TestCase):
             "mask_height": "mask_height",
             "header_price_1": "header_price_1",
             "header_price_2": "header_price_2",
-            "restaurante": create_restaurante().pk,
+            "restaurante": create_R-estaurante().pk,
         }
         response = self.client.post(url, data=data)
         self.assertEqual(response.status_code, 302)
@@ -145,7 +145,7 @@ class CategoriaViewTest(unittest.TestCase):
             "mask_height": "mask_height",
             "header_price_1": "header_price_1",
             "header_price_2": "header_price_2",
-            "restaurante": create_restaurante().pk,
+            "restaurante": create_R-estaurante().pk,
         }
         url = reverse('menu_categoria_update', args=[categoria.slug,])
         response = self.client.post(url, data)

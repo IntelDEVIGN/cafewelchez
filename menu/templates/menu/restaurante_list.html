@@ -2,33 +2,33 @@
 {% load static %}{% block cTitle %}Restaurantes{% endblock %}{% block pTitle %}Restaurantes{% endblock %}
 {% block theader %}
     <th data-priority="2">Orden</th>
+    <th data-priority="9">Lugar</th>
     <th data-priority="1">Nombre</th>
-    {#                <th>slug</th>#}
-    {#                <th>creado</th>#}
-    {#                <th>actualizado</th>#}
-    <th data-priority="4">Lugar</th>
     <th data-priority="3">Activo</th>
     <th data-priority="5">Texto en el Menú</th>
 {% endblock %}
 {% block tbody %}
-    {% for object in object_list %}
+    {% for restaurante in restaurante_list %}
         <tr>
-            <td>{{ object.orden }}</td>
-            <td><a href="{{ object.get_absolute_url }}">{{ object }}</a>
+            <td>{{ restaurante.orden }}</td>
+            <td>{{ restaurante.lugar }}</td>
+            <td><a href="{{ restaurante.get_absolute_url }}">{{ restaurante }}</a>
                 {% if request.user.is_superuser %}
                     <span class="minipopuplink">
-                        <a id="cursorPos-r{{ object.id }}" href="#modal_r{{ object.id }}" class="modal-trigger"
-                        onclick="openModal_r{{ object.id }}()">
+                        <a id="curPos_R{{ restaurante.id }}" href="#modal_R{{ restaurante.id }}" class="modal-trigger"
+                        onclick="openModal_R{{ restaurante.id }}()">
                             <i class="material-icons">more_vert</i></a>
                     </span>{% endif %}</td>
-            {#                    <td>{{ object.slug }}</td>#}
-            {#                    <td>{{ object.creado }}</td>#}
-            {#                    <td>{{ object.actualizado }}</td>#}
-            <td>{{ object.lugar }}</td>
-            <td class="center">{{ object.activo|yesno }}</td>
-            <td>{{ object.texto_menu }}</td>
+            <td class="center">{{ restaurante.activo|yesno }}</td>
+            <td>{{ restaurante.texto_menu }}</td>
         </tr>
-    {% endfor %}
+    {% endfor %}{% block tdfoot %}{% comment %}
+    <td><small>Orden</small></td>
+    <td><small>Lugar</small></td>
+    <td><small>Nombre</small></td>
+    <td><small>Activo</small></td>
+    <td><small>Texto en el Menú</small></td>{% endcomment %}
+{% endblock %}
 {% endblock %}{% block footer %}
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large darkblue">
@@ -43,23 +43,23 @@
         </ul>
     </div>
 {% if request.user.is_superuser %}
-    {% for object in object_list %}
+    {% for restaurante in restaurante_list %}
         <div class="modal-open">
-            <div class="minipopup3 modal-content" id="modal_r{{ object.id }}">
+            <div class="minipopup3 modal-content" id="modal_R{{ restaurante.id }}">
                 <ul class="ui-listview">
                     <li>
-                        <a title="Seleccionar Restaurante {{ object }}"
+                        <a title="Seleccionar Restaurante {{ restaurante }}"
 {#                           data-ajax="false"#}
 {#                           onclick="window.location.reload(false);"#}
-                           href="{{ object.get_absolute_url }}">
+                           href="{{ restaurante.get_absolute_url }}">
                             <i class="material-icons">arrow_forward</i> Seleccionar</a></li>
                     <li>
-                        <a title="Editar Restaurante {{ object }}"
-                           href="{{ object.get_update_url }}">
+                        <a title="Editar Restaurante {{ restaurante }}"
+                           href="{{ restaurante.get_update_url }}">
                             <i class="material-icons">edit</i> Editar</a></li>
                     <li>
-                        <a title="Eliminar Restaurante {{ object }}"
-                           href="{{ object.get_delete_url }}">
+                        <a title="Eliminar Restaurante {{ restaurante }}"
+                           href="{{ restaurante.get_delete_url }}">
                             <i class="material-icons">delete</i> Borrar</a></li>
                 </ul>
                 <div class="ui-popup-arrow-container ui-popup-arrow-t">
@@ -68,30 +68,19 @@
             </div>
         </div>
         <script type="text/javascript">
-
             $(document).ready(function () {
-                $('#cursorPos-r{{ object.id }}').click(function (e) {
+                $('#curPos_R{{ restaurante.id }}').click(setModalPos);
+                function setModalPos() {
                     var offset = $(this).offset();
-                    console.log('offset: ' + offset);
-                    console.log('offset.top: ' + offset.top);
-                    console.log('offset.left: ' + offset.left);
-                    console.log('e.clientX: ' + e.clientX);
-                    console.log('e.clientY: ' + e.clientY);
-
                     $('.modal-open').css({
-                        {#'top': (e.clientY + 36),#}
-                        {#'left': (e.clientX - 52)#}
                         'top': (offset.top + 36),
                         'left': (offset.left - 52)
                     });
-                    {#$('.modal').modal('open');#}
-                });
+                }
             });
-
-            function openModal_r{{ object.id }}() {
-                $('#modal_r{{ object.id }}').openModal();
+            function openModal_R{{ restaurante.id }}() {
+                $('#modal_R{{ restaurante.id }}').openModal();
             }
-
         </script>
     {% endfor %}
 {% endif %}

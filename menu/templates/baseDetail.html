@@ -1,17 +1,11 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% load humanize %}
-{% block extcss %}
-    <link type="text/css" rel="stylesheet"
-          href="{% static 'css/materialize-0.97.5.css' %}"/>
-    <!--materialize-datatables-->
+{% load humanize %}{% block extcss %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize-0.97.5.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'datatables/datatables.min.css' %}">
-    <!--/materialize-datatables-->
-    {% include 'material/includes/material_css.html' %}  {# de Django-Material #}
-{% endblock %}{% block cTitle %}listTitle{% endblock %}
-{% block content %}
+    {% include 'material/includes/material_css.html' %}  {# de Django-Material #}{% endblock %}{% block cTitle %}listTitle{% endblock %}{% block content %}
     <div class="card"><!-- detalle -->
-        <table id="table-detail" class="striped bordered ">
+        <table id="table-detail" class="striped bordered">
             <thead>
             <tr>
                 <th colspan="2">{% block thhead %}{% endblock %}{# Table Header-Head #}
@@ -23,29 +17,83 @@
         </table>
     </div><!-- /detalle -->
     <div class="card"><!-- tabla -->
-        <table id="tabladedatos" data-role="table" data-mode="columntoggle"
-               class="bordered table-stroke ui-shadow table-stripe ui-responsive"><!-- tabladedatos -->
+        <table id="tabladedatos" class="bordered striped"><!-- tabladedatos -->
             <thead><!-- header row -->
             <tr>{% block tdhead %}{% endblock %}{# Table Detail-Head #}
             </tr>
             </thead><!-- /header row -->
-            <tbody><!-- data  -->{% block tdbody %}{% endblock %}{# Table Detail-Body #}
+            <tbody>{% block tdbody %}{% endblock %}{# Table Detail-Body #}
             </tbody><!-- /data -->
             <tfoot></tfoot><!--/totales -->
         </table><!-- /tabladedatos -->
-    </div><!-- /tabla -->
-    {% block footer %}{% endblock %}
-{% endblock %}
-{% block scripts %}
-    {# materialize_css -- v 0.100... #}
-    <script type="text/javascript" src="{% static "materialize/js/materialize.min.js" %}"></script>
-    {# materialize_css -- v 0.97.5.. #}
-    <script type="text/javascript" src="{% static 'materialize/js/materialize-0.97.5.min.js' %}"></script>
-    {#/materialize_css#}
-    <!--materialize-datatables-js-->
-    {#    <script type="text/javascript" src="{% static 'materialize/js/dataTables.materialize.js' %}"></script>#}
-    <script type="text/javascript" src="{% static 'datatables/dataTables.js' %}"></script>
-    {# customización de dataTables #}
-    <script defer type="text/javascript" src="{% static "js/tablelocale.js" %}"></script>
-    {#    {% include 'material/includes/material_js.html' %}   {# de Django-Material #}
+    </div><!-- /tabla -->{% block footer %}{% endblock %}{% endblock %}{% block scripts %}
+    <script type="text/javascript" src="{% static "materialize/js/materialize.min.js" %}"></script>{# materialize_css -- v 0.100... #}
+    <script type="text/javascript" src="{% static 'materialize/js/materialize-0.97.5.min.js' %}"></script>{# materialize_css -- v 0.97.5.. #}
+    <script type="text/javascript" src="{% static 'datatables/dataTables.js' %}"></script>{# materialize-datatables #}
+    <script>
+        function docHeight() {
+            var height = jQuery(window).height();
+            console.log("Altura Ventana: " + height + "px.");
+            var filas = ((height - 380) / 42).toFixed(0) - 4;
+            console.log(height);
+            console.log("Caben " + filas + " filas.");
+            return filas
+        }
+
+        filas = docHeight();
+        $(document).ready(function () {
+            var table;
+            table = $('#tabladedatos').dataTable(
+                {
+                    responsive: true,
+                    iDisplayLength: filas,
+                    displayLenght: filas,
+                    pageLength: filas,
+                    lengthMenu: [[filas, filas * 2, filas * 3, filas * 4, -1], [filas, filas * 2, filas * 3, filas * 5, "todo"]],
+                    language: {
+                        columns: '<i class="material-icons md-28" style="vertical-align: -8px;color:#7b7b7b;">view_week</i>',
+                        processing: 'En proceso...',
+                        search: '<i class="material-icons md-28" style="vertical-align: -8px;color:#7b7b7b;">search</i>',
+                        lengthMenu: '<i class="material-icons md-28" style="vertical-align: -8px;color: #7b7b7b;">format_list_numbered</i> _MENU_',
+                        info: '_START_ a _END_ de <strong>_TOTAL_</strong> en total',
+                        infoEmpty: 'No hay elementos',
+                        infoFiltered: '(Filtrado de _MAX_ elementos en total)',
+                        infoPostFix: '',
+                        loadingRecords: 'Cargando...',
+                        zeroRecords: 'No se encontraron registros',
+                        emptyTable: 'No hay datos en esta tabla',
+                        paginate: {
+                            first: '<i class="material-icons">first_page</i>',
+                            previous: '<i class="material-icons">chevron_left</i>',
+                            next: '<i class="material-icons">chevron_right</i>',
+                            last: '<i class="material-icons">last_page</i>'
+                        },
+                        aria: {
+                            sortAscending: ': ordenar columna en forma ascendente',
+                            sortDescending: ': ordenar columna en forma descendente',
+                            paginate: {
+                                first: 'First',
+                                previous: 'Previous',
+                                next: 'Next',
+                                last: 'Last'
+                            }
+                        }
+                    }
+                });
+
+            // Order by the grouping
+            $('#tabladedatos tbody').on('click', 'tr.group', function () {
+                var currentOrder = table.api().order()[0];
+                if (currentOrder[0] === 1 && currentOrder[1] === 'asc') {
+                    table.api().order([1, 'desc']).draw();
+                }
+                else {
+                    table.api().order([1, 'asc']).draw();
+                }
+            });
+
+        });
+    </script>
+
+{#    <script defer type="text/javascript" src="{% static "js/tablelocale.js" %}"></script>{# customización de dataTables #}
 {% endblock %}

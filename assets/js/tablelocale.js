@@ -2,9 +2,9 @@ $(document).ready(function () {
     $('#tabladedatos').dataTable(
         {
             responsive: true,
-            "iDisplayLength": 10,
-            "pageLength": 10,
-            "lengthMenu":[[10,20,30,50,-1],[10,20,30,50,"todos"]],
+            "iDisplayLength": 8,
+            "pageLength": 8,
+            "lengthMenu":[[8,20,30,50,-1],[8,20,30,50,"todos"]],
             "order": [],
             "columnDefs": [{
                 targets: 'no-sort',
