@@ -8,8 +8,8 @@ class RestauranteViewSet(viewsets.ModelViewSet):
 
     queryset = models.Restaurante.objects.all()
     serializer_class = serializers.RestauranteSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    filter_fields = ('lugar',)
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
+    filter_fields = ('id',)
 
 
 class CategoriaViewSet(viewsets.ModelViewSet):
@@ -17,7 +17,7 @@ class CategoriaViewSet(viewsets.ModelViewSet):
 
     queryset = models.Categoria.objects.all()
     serializer_class = serializers.CategoriaSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     filter_fields = ('restaurante',)
 
 
@@ -26,5 +26,5 @@ class ItemViewSet(viewsets.ModelViewSet):
 
     queryset = models.Item.objects.all()
     serializer_class = serializers.ItemSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.DjangoModelPermissionsOrAnonReadOnly]
     filter_fields = ('categoria',)

@@ -11,6 +11,7 @@
                 <p>Estos son los campos del registro de <strong>Categorías</strong> que se pueden editar.</p>
                 <form method="post" class="viewform">
                     {% csrf_token %}
+                    <input type="hidden" id="id_restaurante" name="restaurante" value="{{r_id }}"/>
                     {% form form=form %}{% endform %}
                     <div class="right-align">
                         <button type="submit" name="_submit" class="waves-effect waves-light btn">Guardar</button>

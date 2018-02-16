@@ -3,9 +3,12 @@
 {% load humanize %}
 {% block cTitle %}Detalle de Restaurante{% endblock %}
 {% block pTitle %}Detalle de Restaurante{% endblock %}{% block thhead %}
-    <i class="material-icons">store</i>{{ restaurante }}{% if request.user.is_superuser %}
-    <span class="minipopuplink right">
-        <a id="curPos_R{{ restaurante.id }}" href="#modal_R{{ restaurante.id }}" class="modal-trigger"
+    <i class="material-icons"
+       style="color: #4285f4 !important">store</i>{{ restaurante }}{% if request.user.is_superuser %}
+    <span class="tools-modal-trigger right">
+        <a id="curPos_R{{ restaurante.id }}"
+           href="#modal_R{{ restaurante.id }}"
+           class="modal-trigger"
            onclick="openModal_R{{ restaurante.id }}()">
             <i class="material-icons">more_horiz</i></a>
     </span>{% endif %}{% endblock %}
@@ -36,10 +39,11 @@
 {#    </tr>#}
 {% endblock %}
 {% block tdhead %}
-    <th>Orden</th>
+    <th>Secuencia</th>
     <th>Categoría</th>
-    <th>Activa</th>
-    <th>Altura en Menú</th>
+    <th class="center">Platos</th>
+    <th class="center">Activa</th>
+    <th>Altura</th>
     {#    <th>Título Precio 1</th>#}
     {#    <th>Título Precio 2</th>#}
 {% endblock %}
@@ -49,18 +53,19 @@
             <td>{{ categoria.orden }}</td>
             <td><a href="{{ categoria.get_absolute_url }}">{{ categoria }}</a>
                 {% if request.user.is_superuser %}
-                    <span class="minipopuplink">
+                    <span class="tools-modal-trigger">
                         <a id="curPos_C{{ categoria.id }}" href="#" onclick="openModal_C{{ categoria.id }}()">
                             <i class="material-icons">more_vert</i></a>
                     </span>
                 {% endif %}</td>
-            <td>{{ categoria.activa|yesno }}</td>
+            <td class="center">{{ categoria.platos }}</td>
+            <td class="center">{{ categoria.activa|yesno }}</td>
             <td>{{ categoria.mask_height }}</td>
             {#            <td>{{ categoria.header_price_1 }}</td>#}
             {#            <td>{{ categoria.header_price_2 }}</td>#}
         </tr>{% endfor %}{% endblock %}{% block footer %}{% if request.user.is_superuser %}{# minipopup Header #}
             <div class="modal-open">
-                <div class="minipopup3 modal-content" id="modal_R{{ restaurante.id }}">
+                <div class="tools-modal-wrapper modal-content" id="modal_R{{ restaurante.id }}">
                     <ul class="ui-listview">
                         <li>
                             <a title="Agregar Restaurante Nuevo"
@@ -99,16 +104,18 @@
             <i class="large material-icons">add</i>
         </a>
         <ul>
-            <li><a class="btn-floating blue darken-1"
-                   href="{% url 'menu_categoria_create' restaurante_id=restaurante.pk %}"><i class="material-icons">view_list</i></a></li>
-            <li><a class="btn-floating red darken-1"
-                   href="{% url 'menu_restaurante_create' %}"><i class="material-icons">store</i></a></li>
+            <li><a class="btn-floating" style="background-color: #9c27b0"
+                   href="{% url 'menu_categoria_create' restaurante_id=restaurante.pk %}">
+                <i class="material-icons">view_list</i></a></li>
+            <li><a class="btn-floating" style="background-color: #4285f4"
+                   href="{% url 'menu_restaurante_create' %}">
+                <i class="material-icons">store</i></a></li>
         </ul>
     </div>
     {% if request.user.is_superuser %}
         {% for categoria in restaurante.categorias.all %}
             <div class="modal-open">
-                <div class="minipopup3" id="modal_C{{ categoria.id }}">
+                <div class="tools-modal-wrapper" id="modal_C{{ categoria.id }}">
                     <ul class="ui-listview">
                         <li>
                             <a title="Seleccionar Categoría {{ categoria }}" data-ajax="false"

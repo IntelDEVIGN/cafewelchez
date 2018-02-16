@@ -12,8 +12,7 @@
                 <form method="post" class="viewform">
                     {% csrf_token %}
                     <input type="hidden" id="id_categoria" name="categoria" value="{{ c_id }}"/>
-                    {% form form=form %}
-                    {% endform %}
+                    {% form form=form %}{% endform %}
                     <div class="right-align">
                         <button type="submit" name="_submit" class="waves-effect waves-light btn">Guardar</button>
                     </div>

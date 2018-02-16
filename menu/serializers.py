@@ -9,12 +9,12 @@ class ItemSerializer(serializers.ModelSerializer):
         fields = (
             'orden',
             'nombre',
-            'categoria',
             'descripcion',
             'nivel',
             'precio',
             'precio_2',
             'activo',
+            'categoria',
             # 'slug',
             # 'creado',
             # 'actualizado',
@@ -29,9 +29,10 @@ class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Categoria
         fields = (
-            'orden',
+            # 'id',
+            # 'orden',
             'nombre',
-            'restaurante',
+            # 'restaurante',
             'items',
             'activa',
             'mask_height',
@@ -51,7 +52,8 @@ class RestauranteSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Restaurante
         fields = (
-            'orden',
+            # 'id',
+            # 'orden',
             'nombre',
             'categorias',
             'lugar',

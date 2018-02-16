@@ -31,9 +31,10 @@
         filas = docHeight();
         $(document).ready(function () {
             var table;
+            var breakResponsive = (jQuery(window).width() < 640) ? 1 : 0;
             table = $('#tabladedatos').dataTable(
                 {
-                    responsive: true,
+                    responsive: breakResponsive,
                     iDisplayLength: filas,
                     displayLenght: filas,
                     pageLength: filas,

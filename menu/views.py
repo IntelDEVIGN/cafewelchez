@@ -80,21 +80,21 @@ class ItemCreateView(CreateView):
 
     def form_valid(self, form):
         item = form.save(commit=False)
-        categoria_id = form.data.get('categoria','categoria_id')
+        categoria_id = form.data['categoria']
         categoria = get_object_or_404(Categoria, id=categoria_id)
         item.categoria = categoria
         return super(ItemCreateView, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(ItemCreateView, self).get_context_data(**kwargs)
-        context['i_id'] = self.kwargs['categoria_id']
+        context['c_id'] = self.kwargs['categoria_id']
         return context
 
     def get_success_url(self):
         if 'slug' in self.kwargs:
             slug = self.kwargs['slug']
         else:
-            slug = selr.object.categoria.slug
+            slug = self.object.categoria.slug
         return reverse('menu_categoria_detail', kwargs={'slug': slug})
 
 

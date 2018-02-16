@@ -3,19 +3,55 @@
 {% block cTitle %}Inicio{% endblock %}
 {% block pTitle %}Inicio{% endblock %}
 {% block content %}
-    <div class="card">
-        {% if request.user.is_authenticated %}
-            <p>Hola {{ request.user.username|title }}, ingresaste por última vez
-                hace {{ request.user.last_login|timesince }}</p>
-        {% else %}
-            <p>Bienvenido Invitado!</p>
-        {% endif %}
-        <main>
-            <h5>{{ restaurantes.count }} Restaurantes</h5>
-            {% for restaurante in restaurantes %}
-                <p><strong>{{ restaurante }}</strong>  {{ restaurante.categorias.count }} Categorías</p>
-            {% endfor %}
-        </main>
+    <div class="row valign change-form">
+        <div class="col s12 m8 offset-m2 l8 offset-l2">
+            <div class="card">
+                {% if request.user.is_authenticated %}
+                    <p>Hola {{ request.user.username|title }}, ingresaste por última vez
+                        hace {{ request.user.last_login|timesince }}</p>
+                {% else %}
+                    <p>Bienvenido Invitado!</p>
+                    <p>Si deseas ingresar como Usuario Autorizado tienes que autenticarte:</p>
+                    <p style="text-align: center"><a class="waves-effect waves-light btn center"
+                                                     href="{% url 'iniciar' %}">
+                        <i class="material-icons left">lock_open</i>ingresar</a></p>
+                {% endif %}
+                <table id="table-index" class="striped bordered">
+                    <thead>
+                    <tr>
+                        <th colspan="3" class="center">{{ restaurantes.count }} Restaurantes</th>
+                    </tr>
+                    <tr>
+                        <th class="center"><a class="waves-effect" href="{% url 'menu_restaurante_list' %}">
+                            <i class="material-icons" style="color: #4285f4">store</i>Restaurantes</a></th>
+                        <th class="center"><a class="waves-effect" href="{% url 'menu_categoria_list' %}">
+                            <i class="material-icons" style="color: #9c27b0">view_list</i>Categorías</a></th>
+                        <th class="center"><a class="waves-effect" href="{% url 'menu_item_list' %}">
+                            <i class="material-icons" style="color: #689f38">local_dining</i>Platos</a></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for restaurante in restaurantes %}
+                        <tr>
+                            <td>
+                                <a href="{{ restaurante.get_absolute_url }}">
+                                    <strong>{{ restaurante }}</strong>
+                                </a>
+                            </td>
+                            <td class="center">
+                                {{ restaurante.categorias.count }}
+                            </td>
+                            <td class="center">
+                                {{ restaurante.platos }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 {% endblock %}
 

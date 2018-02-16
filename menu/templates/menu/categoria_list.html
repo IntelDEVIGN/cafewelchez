@@ -2,11 +2,11 @@
 {% load humanize %}
 {% load static %}{% block cTitle %}Categorías{% endblock %}{% block pTitle %}Categorías{% endblock %}
 {% block theader %}
-    <th data-priority="3">Orden</th>
+    <th data-priority="3">Secuencia</th>
     <th data-priority="4">Restaurante</th>
     <th data-priority="1">Categoría</th>
     <th data-priority="2">Activa</th>
-    <th data-priority="5">Altura en Menú</th>
+    <th data-priority="5">Altura</th>
 {% endblock %}
 {% block tbody %}
     {% for categoria in categoria_list %}
@@ -19,7 +19,7 @@
             </td>
             <td><a href="{{ categoria.get_absolute_url }}">{{ categoria }}</a>
                 {% if request.user.is_superuser %}
-                    <span class="minipopuplink">
+                    <span class="tools-modal-trigger">
                         <a id="curPos_C{{ categoria.id }}" href="#" onclick="openModal_C{{ categoria.id }}()">
                             <i class="material-icons">more_vert</i></a>
                     </span>
@@ -30,11 +30,11 @@
     {% endfor %}
 {% endblock %}
 {% block tdfoot %}
-    <td><small>Orden</small></td>
+    <td><small>Secuencia</small></td>
     <td><small>Restaurante</small></td>
     <td><small>Categoría</small></td>
     <td><small>Activa</small></td>
-    <td><small>Altura en Menú</small></td>
+    <td><small>Altura</small></td>
 {% endblock %}
 {% block footer %}{% comment %}
     <div class="fixed-action-btn">
@@ -52,7 +52,7 @@
     {% if request.user.is_superuser %}
         {% for categoria in categoria_list %}
             <div class="modal-open">
-                <div class="minipopup3" id="modal_C{{ categoria.id }}">
+                <div class="tools-modal-wrapper" id="modal_C{{ categoria.id }}">
                     <ul class="ui-listview">
                         <li>
                             <a title="Seleccionar Categoría {{ categoria }}" data-ajax="false"

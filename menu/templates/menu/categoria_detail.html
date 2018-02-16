@@ -3,9 +3,14 @@
 {% load humanize %}
 {% block cTitle %}Detalle de Categoría{% endblock %}
 {% block pTitle %}Detalle de Categoría{% endblock %}{% block thhead %}
-    <a href="{{ categoria.restaurante.get_absolute_url }}"><i class="material-icons">store</i>{{ categoria.restaurante }}</a> > <i class="material-icons">list_view</i>{{categoria }}{% if request.user.is_superuser %}
-        <span class="minipopuplink right">
-        <a id="curPos_C{{ categoria.id }}" href="#modal_C{{ categoria.id }}" class="modal-trigger"
+    <a href="{{ categoria.restaurante.get_absolute_url }}">
+        <i class="material-icons"
+           style="color: #4285f4 !important">store</i>{{ categoria.restaurante }}</a> &mdash; <i class="material-icons"
+                                                                                           style="color: #9c27b0 !important;">list_view</i>{{categoria }}{% if request.user.is_superuser %}
+        <span class="tools-modal-trigger right">
+        <a id="curPos_C{{ categoria.id }}"
+           href="#modal_C{{ categoria.id }}"
+           class="modal-trigger"
            onclick="openModal_C{{ categoria.id }}()">
             <i class="material-icons">more_horiz</i></a>
     </span>{% endif %}{% endblock %}
@@ -15,7 +20,7 @@
 {#        <td class=""><strong>{{ categoria }}</strong></td>#}
 {#    </tr>#}
     <tr>
-        <td class="text-right table-col-label">Orden</td>
+        <td class="text-right table-col-label">Secuencia</td>
         <td class=""><strong>{{ categoria.orden }}</strong></td>
     </tr>
     <tr>
@@ -23,7 +28,7 @@
         <td class=""><strong>{{ categoria.activa|yesno }}</strong></td>
     </tr>
     <tr>
-        <td class="text-right">Altura en Menú</td>
+        <td class="text-right">Altura</td>
         <td class=""><strong>{{ categoria.mask_height }}</strong></td>
     </tr>{% comment %}
     <tr>
@@ -36,10 +41,10 @@
     </tr>
     <tr>
         <td class="text-right">Actualizada</td>
-        <td class=""><em>{{ categoria.actualizada|date:'D d/M/Y' }}</em></td>{% endcomment %}
-    </tr>{% endblock %}
+        <td class=""><em>{{ categoria.actualizada|date:'D d/M/Y' }}</em></td>
+    </tr>{% endcomment %}{% endblock %}
 {% block tdhead %}
-    <th data-priority="2">Orden</th>
+    <th data-priority="2">Secuencia</th>
     <th data-priority="1">Plato</th>
     <th data-priority="5">Descripción</th>
     <th class="center" data-priority="3">Precio 1</th>
@@ -53,20 +58,20 @@
             <td><a href="{{ plato.get_absolute_url }}">{% if plato.nivel > 1 %}&nbsp;&nbsp;&nbsp;
                 &hellip;{% endif %}{{ plato }}</a>
                 {% if request.user.is_superuser %}
-                    <span class="minipopuplink">
+                    <span class="tools-modal-trigger">
                         <a id="curPos_P{{ plato.id }}" href="#" onclick="openModal_P{{ plato.id }}()">
                             <i class="material-icons">more_vert</i></a>
                     </span>
                 {% endif %}</td>
-            <td>{{ plato.descripcion }}</td>
-            <td class="center">{{ plato.precio|intcomma }}</td>
-            <td class="center">{{ plato.precio_2|intcomma }}</td>
+            <td>{{ plato.descripcion|default_if_none:"" }}</td>
+            <td class="center">{{ plato.precio|default_if_none:"&mdash;" }}</td>
+            <td class="center">{{ plato.precio_2|default_if_none:"&mdash;" }}</td>
             <td class="center">{{ plato.activo|yesno }}</td>
         </tr>
     {% endfor %}
 {% endblock %}{% block footer %}{% if request.user.is_superuser %}{# minipopup Header #}
   <div class="modal-open">
-        <div class="minipopup3 modal-content" id="modal_C{{ categoria.id }}">
+        <div class="tools-modal-wrapper modal-content" id="modal_C{{ categoria.id }}">
             <ul class="ui-listview">
                 <li>
                     <a title="Agregar Categoría Nueva"
@@ -109,17 +114,17 @@
             <li><a class="btn-floating green darken-1"
                    href="{% url 'menu_item_create' categoria_id=categoria.pk %}"><i class="material-icons">local_dining</i></a>
             </li>
-            <li><a class="btn-floating blue darken-1"
+            <li><a class="btn-floating red darken-1"
                    href="{% url 'menu_categoria_create' restaurante_id=categoria.restaurante.pk %}"><i class="material-icons">view_list</i></a>
             </li>
-            <li><a class="btn-floating red darken-1"
+            <li><a class="btn-floating blue darken-1"
                    href="{% url 'menu_restaurante_create' %}"><i class="material-icons">store</i></a></li>
         </ul>
     </div>
     {% if request.user.is_superuser %}
         {% for plato in categoria.items.all %}
             <div class="modal-open">
-                <div class="minipopup3" id="modal_P{{ plato.id }}">
+                <div class="tools-modal-wrapper" id="modal_P{{ plato.id }}">
                     <ul class="ui-listview">
                         <li>
                             <a title="Seleccionar Plato {{ plato }}" data-ajax="false"
@@ -149,6 +154,7 @@
                             'left': (offset.left - 52)
                         });
                     });
+
                 });
 
                 function openModal_P{{ plato.id }}() {
@@ -156,5 +162,15 @@
                 }
             </script>
         {% endfor %}
+        <script>
+            $(document).keypress(function (e) {
+                var checkWebkitandIE = (e.which === 26 ? 1 : 0);
+                var checkMoz = (e.which === 122 && e.ctrlKey ? 1 : 0);
+
+                if (checkWebkitandIE || checkMoz) {
+                    window.location = "{% url 'menu_item_create' categoria_id=categoria.pk %}";
+                }
+            });
+        </script>
     {% endif %}
 {% endblock %}

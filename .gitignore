@@ -171,3 +171,8 @@ templates/
 !/menu/templates/
 /assets/jQuery/
 /.idea/cafewelchez.iml
+/.idea/*.?ml
+
+menu/restaurante_1.json
+menu/restaurante_2.json
+menu/restaurante_3.json

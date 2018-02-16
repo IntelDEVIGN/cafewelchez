@@ -114,6 +114,39 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cafewelchez.wsgi.application'
 
+# CORS Config
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = False
+CORS_REPLACE_HTTPS_REFERER = True
+CORS_ORIGIN_WHITELIST = [
+    'localhost',
+    'shorexplan.com',
+    'demo.shorexplan.com',
+    'lathonduras.com',
+    'resttesttest.com',
+]
+# CORS_ORIGIN_REGEX_WHITELIST = [
+#     'localhost:3030',
+# ]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases

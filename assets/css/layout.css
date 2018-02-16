@@ -36,11 +36,19 @@ main {
     width: 25%;
 }
 
+#table-index > thead > tr > th {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: -apple-system, 'Fira Sans', 'Segoe UI', 'Roboto', 'Helvetica', sans-serif !important;
+    font-weight: 300;
+    padding-left: 8px;
+}
+
 #table-detail > thead > tr > th {
     font-size: 18px;
     line-height: 24px;
     font-family: -apple-system, 'Fira Sans', 'Segoe UI', 'Roboto', 'Helvetica', sans-serif !important;
-    font-weight: 200;
+    font-weight: 300;
     padding-left: 8px;
 }
 
@@ -56,7 +64,19 @@ main {
 }
 
 .card {
+    padding: 0px;
+}
+
+.change-form .card {
     padding: 16px;
+}
+
+#tabladedatos_filter {
+    padding-top: 16px;
+}
+
+#tabladedatos_info {
+    padding:10px;
 }
 
 .material-icons {
@@ -87,9 +107,11 @@ footer {
 }
 
 #id_activa_container,#id_activo_container, .group {
-    padding-top: 24px!important;
+    padding-top: 20px!important;
     border-bottom: solid 1px #9e9e9e;
-    padding-bottom: 9px;
+    position: relative;
+    width: 96%;
+    left: 8px;
     font-family: -apple-system,BlinkMacSystemFont,"Fira Sans","Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue", sans-serif;
     font-weight: 200 !important;
 }
@@ -225,7 +247,7 @@ div.modal-open {
     outline: 0;
 }
 
-div.minipopup3 {
+div.tools-modal-wrapper {
     width: 130px;
     z-index: 1100;
     font-size: small;
@@ -239,16 +261,16 @@ div.minipopup3 {
     display: none;
 }
 
-.minipopup3 a {
+.tools-modal-wrapper a {
     color: #0d47a1 !important;
     text-decoration: none;
 }
 
-span.minipopuplink {
+span.tools-modal-trigger {
     float: left;
 }
 
-span.minipopuplink a i {
+span.tools-modal-trigger a i {
     color: gray !important;
     /*padding-right: 8px;*/
 }
@@ -256,17 +278,17 @@ span.minipopuplink a i {
 #id_texto_menu{
     height: auto !important;
 }
-span.minipopuplink i:hover,
-span.minipopuplink i:active,
-span.minipopuplink i:focus {
+span.tools-modal-trigger i:hover,
+span.tools-modal-trigger i:active,
+span.tools-modal-trigger i:focus {
     color: #0d47a1 !important;
 }
 
-.minipopup3 ul {
+.tools-modal-wrapper ul {
     line-height: 36px;
 }
 
-.minipopup3 a {
+.tools-modal-wrapper a {
     padding: 10px;
 }
 
@@ -280,7 +302,7 @@ span.minipopuplink i:focus {
 /*padding: 10px 36px 10px 56px;*/
 /*}*/
 
-.minipopup3 li:hover {
+.tools-modal-wrapper li:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 

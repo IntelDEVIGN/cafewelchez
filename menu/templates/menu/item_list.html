@@ -2,7 +2,7 @@
 {% load humanize %}
 {% load static %}{% block cTitle %}Platos{% endblock %}{% block pTitle %}Platos{% endblock %}
 {% block theader %}
-    <th data-priority="8">Orden</th>
+    <th data-priority="8">Secuencia</th>
     <th data-priority="9">Categoría</th>
     <th data-priority="1">Plato</th>
     <th data-priority="10">Descripción</th>
@@ -17,24 +17,24 @@
                 <small>{{ plato.orden }}</small>
             </td>
             <td>
-                <i class="material-icons">store</i>{{ plato.categoria.restaurante }} > <i class="material-icons">list_view</i>{{ plato.categoria }}
+                <i class="material-icons">store</i>{{ plato.categoria.restaurante }} &mdash; <i class="material-icons">list_view</i>{{ plato.categoria }} <em>({{ plato.categoria.platos }})</em>
             </td>
             <td><a href="{{ plato.get_absolute_url }}">{% if plato.nivel > 1 %}&nbsp;&nbsp;&nbsp;
                 &hellip;{% endif %}{{ plato }}</a>
                 {% if request.user.is_superuser %}
-                    <span class="minipopuplink">
+                    <span class="tools-modal-trigger">
                         <a id="curPos_P{{ plato.id }}" href="#" onclick="openModal_P{{ plato.id }}()">
                             <i class="material-icons">more_vert</i></a>
                     </span>
                 {% endif %}</td>
-            <td>{{ plato.descripcion }}</td>
-            <td class="center">{{ plato.precio|intcomma }}</td>
-            <td class="center">{{ plato.precio_2|intcomma }}</td>
+            <td>{{ plato.descripcion|default_if_none:"" }}</td>
+            <td class="center">{{ plato.precio|default_if_none:"&mdash;" }}</td>
+            <td class="center">{{ plato.precio_2|default_if_none:"&mdash;" }}</td>
             <td class="center">{{ plato.activo|yesno }}</td>
         </tr>
     {% endfor %}
     {% block tdfoot %}{% comment %}
-        <td><small>Orden</small></td>
+        <td><small>Secuencia</small></td>
         <td><small>Categoría</small></td>
         <td><small>Plato</small></td>
         <td><small>Descripción</small></td>
@@ -51,7 +51,7 @@
     {% if request.user.is_superuser %}
         {% for plato in item_list %}
             <div class="modal-open">
-                <div class="minipopup3" id="modal_P{{ plato.id }}">
+                <div class="tools-modal-wrapper" id="modal_P{{ plato.id }}">
                     <ul class="ui-listview">
                         <li>
                             <a title="Seleccionar Plato {{ plato }}" data-ajax="false"
@@ -85,6 +85,7 @@
                     }
 
                     $('select').material_select();
+
                 });
 
                 function openModal_P{{ plato.id }}() {

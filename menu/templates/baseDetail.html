@@ -33,7 +33,9 @@
     <script>
         function docHeight() {
             var height = jQuery(window).height();
+//            var tHeader = $('#tabladedatos').position();
             console.log("Altura Ventana: " + height + "px.");
+//            console.log("Posición THeader: " + tHeader.top + "px.");
             var filas = ((height - 380) / 42).toFixed(0) - 4;
             console.log(height);
             console.log("Caben " + filas + " filas.");
@@ -43,9 +45,10 @@
         filas = docHeight();
         $(document).ready(function () {
             var table;
+            var breakResponsive = (jQuery(window).width() < 640) ? 1 : 0;
             table = $('#tabladedatos').dataTable(
                 {
-                    responsive: true,
+                    responsive: breakResponsive,
                     iDisplayLength: filas,
                     displayLenght: filas,
                     pageLength: filas,

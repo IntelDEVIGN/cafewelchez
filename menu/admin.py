@@ -13,40 +13,40 @@ regrabar.short_description = "Regrabar"
 
 
 class RestauranteAdminForm(forms.ModelForm):
-
     class Meta:
         model = Restaurante
         fields = '__all__'
 
 
 class RestauranteAdmin(admin.ModelAdmin):
+    actions = [regrabar]
     form = RestauranteAdminForm
-    list_display = ['orden', 'nombre', 'activo', 'lugar', 'texto_menu', 'slug', 'creado', 'actualizado']
-    readonly_fields = ['slug', 'creado', 'actualizado']
+    list_display = ['orden', 'nombre', 'activo', 'lugar', 'platos', 'texto_menu', 'slug', 'creado',
+                    'actualizado']
+    readonly_fields = ['platos', 'slug', 'creado', 'actualizado']
 
 
 admin.site.register(Restaurante, RestauranteAdmin)
 
 
 class CategoriaAdminForm(forms.ModelForm):
-
     class Meta:
         model = Categoria
         fields = '__all__'
 
 
 class CategoriaAdmin(admin.ModelAdmin):
+    actions = [regrabar]
     form = CategoriaAdminForm
-    list_display = ['orden', 'nombre', 'activa', 'mask_height', 'header_price_1', 'header_price_2', 'slug', 'creada',
-                    'actualizada']
-    readonly_fields = ['slug', 'creada', 'actualizada']
+    list_display = ['orden', 'nombre', 'activa', 'mask_height', 'header_price_1', 'header_price_2', 'platos', 'slug',
+                    'creada', 'actualizada']
+    readonly_fields = ['platos', 'slug', 'creada', 'actualizada']
 
 
 admin.site.register(Categoria, CategoriaAdmin)
 
 
 class ItemAdminForm(forms.ModelForm):
-
     class Meta:
         model = Item
         fields = '__all__'
