@@ -76,10 +76,10 @@ class Categoria(models.Model):
         verbose_name_plural = 'Categorías'
 
     def __str__(self):
-        return self.nombre
+        return self.restaurante.nombre + ' - ' + self.nombre
 
     def __unicode__(self):
-        return u'%s' % self.nombre
+        return u'%s' % self.restaurante.nombre + ' - ' + self.nombre
 
     @property
     def count_platos(self):
@@ -129,6 +129,10 @@ class Item(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.nombre
+
+    @property
+    def restaurante(self):
+        return self.categoria.restaurante.nombre
 
     def save(self, *args, **kwargs):
         lacategoria = Categoria.objects.get(id=self.categoria.pk)

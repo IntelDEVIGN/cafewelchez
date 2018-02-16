@@ -1,16 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'baseForm.html' %}
+{% load staticfiles %}
+{% load material_form %}
 {% block pTitle %}Ingresando{% endblock %}
-
 {% block cTitle %}Ingresar{% endblock %}
 
 {% block content %}
-    <div class="topcontainer" style="padding: 10px;">
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button style="width: 200px !important;margin_R-ight: auto !important;margin-left: auto;" type="submit">Login</button>
-        <br/>
-    </form>
+    <div class="row valign change-form">
+        <div class="col s12 m8 offset-m2 l8 offset-l2">
+            <div class="card">
+                <span class="card-title grey-text text-darken-2">Ingresar</span>
+                <p>Ingrese su infrmación de <strong>usuario registrado</strong> para poder editar información.</p>
+                <form method="post" class="viewform">
+                    {% csrf_token %}
+                    {% form form=form %}{% endform %}
+                    <div class="right-align">
+                        <button type="submit" name="_submit" class="waves-effect waves-light btn">Ingresar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}

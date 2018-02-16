@@ -1,0 +1,19 @@
+{% extends 'baseForm.html' %}
+{% load staticfiles %}
+{% block pTitle %}Saliendo{% endblock %}
+{% block cTitle %}Salir{% endblock %}
+
+{% block content %}
+<div class="row valign change-form">
+    <div class="col s12 m8 offset-m2 l8 offset-l2">
+        <div class="card">
+            <span class="card-title grey-text text-darken-2">Saliendo</span>
+            <p>Gracias por el tiempo empleado en el sitio. Puede <strong>ingresar de nuevo</strong> si así lo desea:</p>
+            <p style="text-align: center">
+                <a class="waves-effect waves-light btn center"
+                   href="{% url 'iniciar' %}">
+                <i class="material-icons left">lock_open</i>ingresar</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

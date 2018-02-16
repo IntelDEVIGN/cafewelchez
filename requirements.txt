@@ -7,4 +7,5 @@ djangorestframework==3.7.7
 Markdown==2.6.11
 coreapi==2.3.3
 coreapi-cli==1.0.6
--e git://github.com/darklow/django-suit.git@v2#egg=django-suit
+django-suit==0.2.25
+# -e git://github.com/darklow/django-suit.git@v2#egg=django-suit

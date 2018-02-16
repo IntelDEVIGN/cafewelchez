@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django import forms
 from .models import Restaurante, Categoria, Item
+from .filters import DropdownFilterValues, DropdownFilterRelated
 
 
 def regrabar(modeladmin, request, queryset):
     for objeto in queryset:
-        objeto.creado = '2018-01-20'
+        # objeto.creado = '2018-01-20'
         objeto.save()
 
 
@@ -24,6 +25,8 @@ class RestauranteAdmin(admin.ModelAdmin):
     list_display = ['orden', 'nombre', 'activo', 'lugar', 'platos', 'texto_menu', 'slug', 'creado',
                     'actualizado']
     readonly_fields = ['platos', 'slug', 'creado', 'actualizado']
+    ordering = ('orden',)
+    search_fields = ['nombre', 'lugar', ]
 
 
 admin.site.register(Restaurante, RestauranteAdmin)
@@ -41,6 +44,10 @@ class CategoriaAdmin(admin.ModelAdmin):
     list_display = ['orden', 'nombre', 'activa', 'mask_height', 'header_price_1', 'header_price_2', 'platos', 'slug',
                     'creada', 'actualizada']
     readonly_fields = ['platos', 'slug', 'creada', 'actualizada']
+    search_fields = ['nombre', ]
+    list_filter = (('activa', DropdownFilterValues),
+                   ('restaurante', DropdownFilterRelated),)
+    ordering = ('orden',)
 
 
 admin.site.register(Categoria, CategoriaAdmin)
@@ -55,8 +62,12 @@ class ItemAdminForm(forms.ModelForm):
 class ItemAdmin(admin.ModelAdmin):
     actions = [regrabar]
     form = ItemAdminForm
-    list_display = ['orden', 'nombre', 'activo', 'descripcion', 'precio', 'precio_2', 'slug', 'creado', 'actualizado']
+    list_display = ['orden', 'categoria', 'nombre', 'activo', 'descripcion', 'precio', 'precio_2', 'slug', 'creado', 'actualizado']
     readonly_fields = ['slug', 'creado', 'actualizado']
+    search_fields = ['nombre', 'descripcion', ]
+    list_filter = (('activo', DropdownFilterValues),
+                   ('categoria', DropdownFilterRelated), )
+    ordering = ('orden',)
 
 
 admin.site.register(Item, ItemAdmin)

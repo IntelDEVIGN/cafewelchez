@@ -8,7 +8,7 @@
            style="color: #4285f4 !important;">store</i>{{ item.categoria.restaurante }}</a><a href="{{ item.categoria.get_absolute_url }}">
         <i class="material-icons"
            style="color: #9c27b0 !important;">list_view</i>
-        {{ item.categoria }}</a> &mdash;
+        {{ item.categoria.nombre }}</a> &mdash;
     <i class="material-icons"
        style="color: #689f38 !important;">local_dining</i>{{ item }}{% if request.user.is_superuser %}
         <span class="tools-modal-trigger right">
@@ -23,11 +23,11 @@
     </tr>
     <tr>
         <td class="text-right">Precio 1</td>
-        <td class=""><strong>{{ item.precio|intcomma }}</strong></td>
+        <td class=""><strong>{{ item.precio|default_if_none:"&mdash;" }}</strong></td>
     </tr>
     <tr>
         <td class="text-right">Precio 2</td>
-        <td class=""><strong>{{ item.precio_2|intcomma }}</strong></td>
+        <td class=""><strong>{{ item.precio_2|default_if_none:"&mdash;" }}</strong></td>
     </tr>
     <tr>
         <td class="text-right">Activo</td>
@@ -39,7 +39,7 @@
     </tr>
     <tr>
         <td class="text-right">Descripción</td>
-        <td class=""><strong>{{ item.descripcion }}</strong></td>
+        <td class=""><strong>{{ item.descripcion|default_if_none:"" }}</strong></td>
     </tr>{% endblock %}
 {% block tdhead %}
 {% endblock %}

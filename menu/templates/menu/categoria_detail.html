@@ -6,10 +6,10 @@
     <a href="{{ categoria.restaurante.get_absolute_url }}">
         <i class="material-icons"
            style="color: #4285f4 !important">store</i>{{ categoria.restaurante }}</a> &mdash; <i class="material-icons"
-                                                                                           style="color: #9c27b0 !important;">list_view</i>{{categoria }}{% if request.user.is_superuser %}
+                                                                     style="color: #9c27b0 !important;">list_view</i>{{categoria.nombre }}{% if request.user.is_superuser %}
         <span class="tools-modal-trigger right">
         <a id="curPos_C{{ categoria.id }}"
-           href="#modal_C{{ categoria.id }}"
+s          href="#modal_C{{ categoria.id }}"
            class="modal-trigger"
            onclick="openModal_C{{ categoria.id }}()">
             <i class="material-icons">more_horiz</i></a>
