@@ -88,13 +88,14 @@
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#curPos_R{{ restaurante.id }}').click(function () {
-                        var offset = $(this).offset();
+                        let offset = $(this).offset();
                         $('.modal-open').css({
                             'top': (offset.top + 36),
                             'left': (offset.left - 52)
                         });
                     });
                 });
+
                 function openModal_R{{ restaurante.id }}() {
                     $('#modal_R{{ restaurante.id }}').openModal();
                 }
@@ -139,13 +140,14 @@
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#curPos_C{{ categoria.id }}').click(function () {
-                        var offset = $(this).offset();
+                        let offset = $(this).offset();
                         $('.modal-open').css({
                             'top': (offset.top + 36),
                             'left': (offset.left - 52)
                         });
                     });
                 });
+
                 function openModal_C{{ categoria.id }}() {
                     $('#modal_C{{ categoria.id }}').openModal();
                 }

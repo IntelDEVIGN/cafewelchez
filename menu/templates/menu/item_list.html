@@ -77,7 +77,7 @@
                     $('#curPos_P{{ plato.id }}').click(setModslPos);
 
                     function setModslPos() {
-                        var offset = $(this).offset();
+                        let offset = $(this).offset();
                         $('.modal-open').css({
                             'top': (offset.top + 36),
                             'left': (offset.left - 52)

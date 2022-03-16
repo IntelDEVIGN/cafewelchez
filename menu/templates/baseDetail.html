@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load humanize %}{% block extcss %}
     <link type="text/css" rel="stylesheet" href="{% static 'css/materialize-0.97.5.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'datatables/datatables.min.css' %}">
@@ -32,11 +32,11 @@
     <script type="text/javascript" src="{% static 'datatables/dataTables.js' %}"></script>{# materialize-datatables #}
     <script>
         function docHeight() {
-            var height = jQuery(window).height();
-//            var tHeader = $('#tabladedatos').position();
+            let height = jQuery(window).height();
+//            let tHeader = $('#tabladedatos').position();
             console.log("Altura Ventana: " + height + "px.");
 //            console.log("Posición THeader: " + tHeader.top + "px.");
-            var filas = ((height - 380) / 42).toFixed(0) - 4;
+            let filas = ((height - 380) / 42).toFixed(0) - 4;
             console.log(height);
             console.log("Caben " + filas + " filas.");
             return filas
@@ -44,8 +44,8 @@
 
         filas = docHeight();
         $(document).ready(function () {
-            var table;
-            var breakResponsive = (jQuery(window).width() < 640) ? 1 : 0;
+            let table;
+            let breakResponsive = (jQuery(window).width() < 640) ? 1 : 0;
             table = $('#tabladedatos').dataTable(
                 {
                     responsive: breakResponsive,
@@ -86,11 +86,10 @@
 
             // Order by the grouping
             $('#tabladedatos tbody').on('click', 'tr.group', function () {
-                var currentOrder = table.api().order()[0];
+                let currentOrder = table.api().order()[0];
                 if (currentOrder[0] === 1 && currentOrder[1] === 'asc') {
                     table.api().order([1, 'desc']).draw();
-                }
-                else {
+                } else {
                     table.api().order([1, 'asc']).draw();
                 }
             });

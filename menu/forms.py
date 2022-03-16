@@ -2,7 +2,7 @@ from django import forms
 from django.forms import Textarea
 from material import Layout, Row
 
-from .models import Restaurante, Categoria, Item
+from .models import Categoria, Item, Restaurante
 
 
 class RestauranteForm(forms.ModelForm):
@@ -38,4 +38,3 @@ class ItemForm(forms.ModelForm):
     layout = Layout(Row('orden', 'activo'),
                     'nombre', 'descripcion',
                     Row('nivel', 'precio', 'precio_2'))
-

@@ -79,7 +79,7 @@
                     $('#curPos_C{{ categoria.id }}').click(setModalPos);
 
                     function setModalPos() {
-                        var offset = $(this).offset();
+                        let offset = $(this).offset();
                         $('.modal-open').css({
                             'top': (offset.top + 36),
                             'left': (offset.left - 52)

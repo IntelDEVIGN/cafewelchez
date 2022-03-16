@@ -1,11 +1,9 @@
-Django==1.11.4
-django-crispy-forms==1.7.0
-django-filter==2.0.0.dev1
-django-extensions==1.9.9
-django-material==1.2.2
-djangorestframework==3.7.7
-Markdown==2.6.11
-coreapi==2.3.3
-coreapi-cli==1.0.6
-django-suit==0.2.25
-# -e git://github.com/darklow/django-suit.git@v2#egg=django-suit
+Django>=3, <=4.0.3
+#django-crispy-forms
+django-filter
+django-extensions
+django-material
+djangorestframework
+#Markdown
+#coreapi
+#coreapi-cli

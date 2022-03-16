@@ -5,7 +5,8 @@
 {% block pTitle %}Detalle de Plato{% endblock %}{% block thhead %}
     <a href="{{ item.categoria.restaurante.get_absolute_url }}">
         <i class="material-icons"
-           style="color: #4285f4 !important;">store</i>{{ item.categoria.restaurante }}</a><a href="{{ item.categoria.get_absolute_url }}">
+           style="color: #4285f4 !important;">store</i>{{ item.categoria.restaurante }}</a>
+    <a href="{{ item.categoria.get_absolute_url }}">
         <i class="material-icons"
            style="color: #9c27b0 !important;">list_view</i>
         {{ item.categoria.nombre }}</a> &mdash;
@@ -69,7 +70,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#curPos_P{{ item.id }}').click(function () {
-                var offset = $(this).offset();
+                let offset = $(this).offset();
                 $('.modal-open').css({
                     'top': (offset.top + 36),
                     'left': (offset.left - 52)

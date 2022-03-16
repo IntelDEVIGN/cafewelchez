@@ -1,7 +1,8 @@
-from django.contrib import admin
 from django import forms
-from .models import Restaurante, Categoria, Item
-from .filters import DropdownFilterValues, DropdownFilterRelated
+from django.contrib import admin
+
+from .filters import DropdownFilterRelated, DropdownFilterValues
+from .models import Categoria, Item, Restaurante
 
 
 def regrabar(modeladmin, request, queryset):
@@ -62,11 +63,12 @@ class ItemAdminForm(forms.ModelForm):
 class ItemAdmin(admin.ModelAdmin):
     actions = [regrabar]
     form = ItemAdminForm
-    list_display = ['orden', 'categoria', 'nombre', 'activo', 'descripcion', 'precio', 'precio_2', 'slug', 'creado', 'actualizado']
+    list_display = ['orden', 'categoria', 'nombre', 'activo', 'descripcion', 'precio', 'precio_2', 'slug', 'creado',
+                    'actualizado']
     readonly_fields = ['slug', 'creado', 'actualizado']
     search_fields = ['nombre', 'descripcion', ]
     list_filter = (('activo', DropdownFilterValues),
-                   ('categoria', DropdownFilterRelated), )
+                   ('categoria', DropdownFilterRelated),)
     ordering = ('orden',)
 
 

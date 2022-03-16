@@ -1,18 +1,17 @@
-from django.core.urlresolvers import reverse
-from django.db.models.functions import Coalesce
-from django_extensions.db.fields import AutoSlugField
-from django.db.models import *
-from django.conf import settings
-from django.contrib.contenttypes.fields import GenericForeignKey
+# from django.conf import settings
+# from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.auth import get_user_model
-from django.contrib.auth import models as auth_models
-from django.db import models as models
+# from django.contrib.auth import get_user_model
+# from django.contrib.auth import models as auth_models
+from django.db import models
+# from django.db.models.functions import Coalesce
+# from django_extensions.db.fields import AutoSlugField
+from django.db.models import *
+from django.urls import reverse
 from django_extensions.db import fields as extension_fields
 
 
 class Restaurante(models.Model):
-
     # Fields
     orden = models.IntegerField(null=True, blank=True)
     nombre = models.CharField(max_length=100)

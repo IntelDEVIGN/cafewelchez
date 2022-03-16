@@ -8,6 +8,7 @@
         <option name="manageScript" value="$MODULE_DIR$/manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
         <option name="doNotUseTestRunner" value="false" />
+        <option name="trackFilePattern" value="migrations" />
       </configuration>
     </facet>
   </component>
@@ -15,22 +16,13 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="jquery-3.2.1" level="application" />
-    <orderEntry type="library" name="dataTables.material" level="application" />
-    <orderEntry type="library" name="datatables.net-DefinitelyTyped" level="application" />
-    <orderEntry type="library" name="jquery.dataTables" level="application" />
-    <orderEntry type="library" name="@types/materialize-css" level="application" />
-    <orderEntry type="library" name="materialize" level="application" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../cafewelchez\templates" />
+        <option value="$MODULE_DIR$/menu/templates" />
       </list>
     </option>
-  </component>
-  <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
   </component>
 </module>

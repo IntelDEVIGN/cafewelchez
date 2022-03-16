@@ -8,7 +8,7 @@
             <div class="card">
                 {% if request.user.is_authenticated %}
                     <p>Hola {{ request.user.username|title }}, ingresaste por última vez
-                        hace {{ request.user.last_login|timesince }}</p>
+                       hace {{ request.user.last_login|timesince }}</p>
                 {% else %}
                     <p>Bienvenido Invitado!</p>
                     <p>Si deseas ingresar como Usuario Autorizado tienes que autenticarte:</p>

@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,13 +73,15 @@
     </li>
     <li><a class="waves-effect" href="{% url 'menu_item_list' %}">
         <i class="material-icons" style="color: #689f38">local_dining</i>Platos</a>
-    </li>{% comment %}
+    </li>
+    {% comment %}
             <li>
                 <div class="divider"></div>
             </li>
             <li><a class="subheader">Subheader</a></li>{% endcomment %}
 </ul>
-<script type="text/javascript" src="{% static 'jQuery/jquery-3.2.1.min.js' %}"></script>
+{#<script type="text/javascript" src="{% static 'jQuery/jquery-3.2.1.min.js' %}"></script>#}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <main>
     <div class="row">
         <div class="container-fluid" style="height: 89%">{% block content %}Replace this.{% endblock %}

@@ -5,20 +5,21 @@
 {% block pTitle %}Detalle de Categoría{% endblock %}{% block thhead %}
     <a href="{{ categoria.restaurante.get_absolute_url }}">
         <i class="material-icons"
-           style="color: #4285f4 !important">store</i>{{ categoria.restaurante }}</a> &mdash; <i class="material-icons"
-                                                                     style="color: #9c27b0 !important;">list_view</i>{{categoria.nombre }}{% if request.user.is_superuser %}
+           style="color: #4285f4 !important">store</i>{{ categoria.restaurante }}</a> &mdash;
+    <i class="material-icons" style="color: #9c27b0 !important;">list_view</i>
+    {{ categoria.nombre }}{% if request.user.is_superuser %}
         <span class="tools-modal-trigger right">
         <a id="curPos_C{{ categoria.id }}"
-s          href="#modal_C{{ categoria.id }}"
+           s href="#modal_C{{ categoria.id }}"
            class="modal-trigger"
            onclick="openModal_C{{ categoria.id }}()">
             <i class="material-icons">more_horiz</i></a>
     </span>{% endif %}{% endblock %}
 {% block thbody %}
-{#    <tr>#}
-{#        <td class="text-right table-col-label">Categoría</td>#}
-{#        <td class=""><strong>{{ categoria }}</strong></td>#}
-{#    </tr>#}
+    {#    <tr>#}
+    {#        <td class="text-right table-col-label">Categoría</td>#}
+    {#        <td class=""><strong>{{ categoria }}</strong></td>#}
+    {#    </tr>#}
     <tr>
         <td class="text-right table-col-label">Secuencia</td>
         <td class=""><strong>{{ categoria.orden }}</strong></td>
@@ -56,7 +57,7 @@ s          href="#modal_C{{ categoria.id }}"
         <tr>
             <td>{{ plato.orden }}</td>
             <td><a href="{{ plato.get_absolute_url }}">{% if plato.nivel > 1 %}&nbsp;&nbsp;&nbsp;
-                &hellip;{% endif %}{{ plato }}</a>
+                                                                               &hellip;{% endif %}{{ plato }}</a>
                 {% if request.user.is_superuser %}
                     <span class="tools-modal-trigger">
                         <a id="curPos_P{{ plato.id }}" href="#" onclick="openModal_P{{ plato.id }}()">
@@ -70,7 +71,7 @@ s          href="#modal_C{{ categoria.id }}"
         </tr>
     {% endfor %}
 {% endblock %}{% block footer %}{% if request.user.is_superuser %}{# minipopup Header #}
-  <div class="modal-open">
+    <div class="modal-open">
         <div class="tools-modal-wrapper modal-content" id="modal_C{{ categoria.id }}">
             <ul class="ui-listview">
                 <li>
@@ -78,7 +79,7 @@ s          href="#modal_C{{ categoria.id }}"
                        href="{% url 'menu_categoria_create' restaurante_id=categoria.restaurante.pk %}">
                         <i class="material-icons">add</i> Agregar</a></li>
                 <li>
-                <a title="Editar Categoría {{ categoria }}"
+                    <a title="Editar Categoría {{ categoria }}"
                        href="{{ categoria.get_update_url }}">
                         <i class="material-icons">edit</i> Editar</a></li>
                 <li>
@@ -94,7 +95,7 @@ s          href="#modal_C{{ categoria.id }}"
     <script type="text/javascript">
         $(document).ready(function () {
             $('#curPos_C{{ categoria.id }}').click(function () {
-                var offset = $(this).offset();
+                let offset = $(this).offset();
                 $('.modal-open').css({
                     'top': (offset.top + 36),
                     'left': (offset.left - 52)
@@ -112,10 +113,12 @@ s          href="#modal_C{{ categoria.id }}"
         </a>
         <ul>
             <li><a class="btn-floating green darken-1"
-                   href="{% url 'menu_item_create' categoria_id=categoria.pk %}"><i class="material-icons">local_dining</i></a>
+                   href="{% url 'menu_item_create' categoria_id=categoria.pk %}"><i
+                    class="material-icons">local_dining</i></a>
             </li>
             <li><a class="btn-floating red darken-1"
-                   href="{% url 'menu_categoria_create' restaurante_id=categoria.restaurante.pk %}"><i class="material-icons">view_list</i></a>
+                   href="{% url 'menu_categoria_create' restaurante_id=categoria.restaurante.pk %}"><i
+                    class="material-icons">view_list</i></a>
             </li>
             <li><a class="btn-floating blue darken-1"
                    href="{% url 'menu_restaurante_create' %}"><i class="material-icons">store</i></a></li>
@@ -148,7 +151,7 @@ s          href="#modal_C{{ categoria.id }}"
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#curPos_P{{ plato.id }}').click(function () {
-                        var offset = $(this).offset();
+                        let offset = $(this).offset();
                         $('.modal-open').css({
                             'top': (offset.top + 36),
                             'left': (offset.left - 52)
@@ -164,8 +167,8 @@ s          href="#modal_C{{ categoria.id }}"
         {% endfor %}
         <script>
             $(document).keypress(function (e) {
-                var checkWebkitandIE = (e.which === 26 ? 1 : 0);
-                var checkMoz = (e.which === 122 && e.ctrlKey ? 1 : 0);
+                let checkWebkitandIE = (e.which === 26 ? 1 : 0);
+                let checkMoz = (e.which === 122 && e.ctrlKey ? 1 : 0);
 
                 if (checkWebkitandIE || checkMoz) {
                     window.location = "{% url 'menu_item_create' categoria_id=categoria.pk %}";

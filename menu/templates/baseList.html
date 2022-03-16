@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load humanize %}{% block extcss %}
     <link type="text/css" rel="stylesheet" href="{% static 'css/materialize-0.97.5.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'datatables/datatables.min.css' %}">{#materialize-datatables#}
@@ -21,17 +21,18 @@
     <script type="text/javascript" src="{% static 'datatables/dataTables.js' %}"></script>{# materialize-datatables-js#}
     <script>
         function docHeight() {
-            var height = jQuery(window).height();
+            let height = jQuery(window).height();
             console.log("Altura Ventana: " + height + "px.");
-            var filas = ((height - 380) / 42).toFixed(0) - 1;
+            let filas = ((height - 380) / 42).toFixed(0) - 1;
             console.log(height);
             console.log("Caben " + filas + " filas.");
             return filas
         }
+
         filas = docHeight();
         $(document).ready(function () {
-            var table;
-            var breakResponsive = (jQuery(window).width() < 640) ? 1 : 0;
+            let table;
+            let breakResponsive = (jQuery(window).width() < 640) ? 1 : 0;
             table = $('#tabladedatos').dataTable(
                 {
                     responsive: breakResponsive,
@@ -47,10 +48,10 @@
                     ],
                     order: [[0, "asc"]],
                     drawCallback: function (settings) {
-                        var api = this.api();
-                        var rows = api.rows({page: 'current'}).nodes();
-                        var cols = api.columns({page: 'current'}).count();
-                        var last = null;
+                        let api = this.api();
+                        let rows = api.rows({page: 'current'}).nodes();
+                        let cols = api.columns({page: 'current'}).count();
+                        let last = null;
 
                         api.column(1, {page: 'current'}).data().each(function (group, i) {
                             if (last !== group) {
@@ -63,7 +64,7 @@
 
                             api.columns().flatten().each(function (colIdx) {
                                 // Create the select list and search operation
-                                var select;
+                                let select;
                                 select = $('<select />')
                                     .appendTo(
                                         api.column(colIdx).footer()
@@ -121,11 +122,10 @@
 
             // Order by the grouping
             $('#tabladedatos tbody').on('click', 'tr.group', function () {
-                var currentOrder = table.api().order()[0];
+                let currentOrder = table.api().order()[0];
                 if (currentOrder[0] === 1 && currentOrder[1] === 'asc') {
                     table.api().order([1, 'desc']).draw();
-                }
-                else {
+                } else {
                     table.api().order([1, 'asc']).draw();
                 }
             });
